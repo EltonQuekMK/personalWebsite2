@@ -17,7 +17,7 @@
 .textAnimation {
   opacity: 0;
   animation-name: cycle;
-  animation-duration: 3s;
+  animation-duration: 3000ms;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   content: '';

@@ -33,6 +33,6 @@ export function TextAnimation() {
         return () => clearInterval(interval);
     });
     return (
-        <div className={styles.textAnimation}>{words[index]}</div>
+        <div key={words[index]} className={styles.textAnimation}>{words[index]}</div>
     );
 }
