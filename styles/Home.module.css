@@ -10,7 +10,7 @@
 
 .bigWords {
   text-align: left;
-  font-size: 8vw;
+  font-size: 9vw;
   font-weight: 700;
 }
 
@@ -137,4 +137,21 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.footer {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.socialNav {
+  font-size: 2rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.socialNav:hover,
+.socialNav:focus,
+.socialNav:active {
+  color: #0070f3;
+  border-color: #0070f3;
 }
