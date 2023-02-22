@@ -14,8 +14,6 @@ const Header = () => (
 
 export default Header;
 
-
-
 export function TextAnimation() {
     const words = [
         'Software developer', 'Caffeine consumer', 'Keyboard warrior', 'Café hopper'
