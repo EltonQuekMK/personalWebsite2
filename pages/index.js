@@ -1,22 +1,21 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import {
-    Container
-} from '@mui/system';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { Container } from "@mui/system";
 
 export default function Home() {
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>Elton Quek</title>
-                <link rel='icon' href='/favicon.ico' />
-            </Head>
-            <Container>
-                <Header />
-                <main>
-{/* 
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Elton Quek</title>
+        <link rel="icon" href="./favicon.svg"/>
+      </Head>
+      <Header />
+
+      <Container>
+        <main>
+          {/* 
                     <p className={styles.description}>
                         Get started by editing <code>pages/index.js</code>
                     </p>
@@ -50,11 +49,11 @@ export default function Home() {
                             </p>
                         </a>
                     </div> */}
-                </main>
-            </Container>
-            <Footer />
+        </main>
+      </Container>
+      <Footer />
 
-            <style jsx>{`
+      <style jsx>{`
         main {
           padding: 5rem 0;
           flex: 1;
@@ -91,7 +90,7 @@ export default function Home() {
         }
       `}</style>
 
-            <style jsx global>{`
+      <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -104,6 +103,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-        </div>
-    )
+    </div>
+  );
 }
