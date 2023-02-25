@@ -6,7 +6,7 @@ import Logo from "../components/Logo.js";
 const Header = () => (
   <>
     <Container>
-      <Logo className={styles.eqLogo} />
+      <Logo/>
 
       <div className={styles.bigWords}>
         <div>Elton Quek</div>

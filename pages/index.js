@@ -9,7 +9,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Elton Quek</title>
-        <link rel="icon" href="./favicon.svg"/>
+        <link rel="icon" href="./eqLogo.svg"/>
       </Head>
       <Header />
 
