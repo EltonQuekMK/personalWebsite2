@@ -1,223 +1,226 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: aliceblue;
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
 }
 
 .bigWords {
-  text-align: left;
-  font-size: 9vw;
-  font-weight: 700;
+    text-align: left;
+    font-size: 9vw;
+    font-weight: 700;
 }
 
 @media screen and (min-width: 1200px) {
-  .bigWords {
-    font-size: 7rem;
-  }
+    .bigWords {
+        font-size: 7rem;
+    }
 }
 
+.name {
+    color: #0066FF;
+}
 .textAnimation {
-  opacity: 0;
-  animation-name: cycle;
-  animation-duration: 3000ms;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  content: "";
+    opacity: 0;
+    animation-name: cycle;
+    animation-duration: 3000ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    content: '';
 }
 
 @keyframes cycle {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-    filter: blur(5px);
-  }
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+        filter: blur(5px);
+    }
 
-  25% {
-    opacity: 1;
-    transform: translateX(0px);
-    filter: blur(0px);
-  }
+    25% {
+        opacity: 1;
+        transform: translateX(0px);
+        filter: blur(0px);
+    }
 
-  75% {
-    opacity: 1;
-    transform: translateX(0px);
-    filter: blur(0px);
-  }
+    75% {
+        opacity: 1;
+        transform: translateX(0px);
+        filter: blur(0px);
+    }
 
-  100% {
-    opacity: 0;
-    transform: translateX(-20px);
-    filter: blur(5px);
-  }
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+        filter: blur(5px);
+    }
 }
 
 .backgroundAnimation {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 25vw;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 25vw;
 }
 
 @media screen and (min-width: 1200px) {
-  .backgroundAnimation {
-    height: 20rem;
-  }
+    .backgroundAnimation {
+        height: 20rem;
+    }
 }
 
 .title a {
-  color: #0070f3;
-  text-decoration: none;
+    color: #0070f3;
+    text-decoration: none;
 }
 
 .title a:hover,
 .title a:focus,
 .title a:active {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .title {
-  margin: 0 0 1rem;
-  line-height: 1.15;
-  font-size: 3.6rem;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+    font-size: 3.6rem;
 }
 
 .title {
-  text-align: center;
+    text-align: center;
 }
 
 .title,
 .description {
-  text-align: center;
+    text-align: center;
 }
 
 .description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+    line-height: 1.5;
+    font-size: 1.5rem;
 }
 
 .grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-top: 3rem;
 }
 
 .card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+    margin: 1rem;
+    flex-basis: 45%;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+    color: #0070f3;
+    border-color: #0070f3;
 }
 
 .card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
 }
 
 .card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
 }
 
 .logo {
-  height: 1em;
+    height: 1em;
 }
 
 .eqLogo {
-  width: 7vw;
-  height: 7vw;
+    width: 7vw;
+    height: 7vw;
 }
 
 .eqLogo svg {
-  overflow: visible;
+    overflow: visible;
 }
 
 .bottomCap {
-  animation-name: botCapCycle;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  transform: none;
-  animation-timing-function: cubic-bezier(0.19, 1, 0.2, 2);
+    animation-name: botCapCycle;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    transform: none;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.2, 2);
 }
 
 @keyframes botCapCycle {
-  0%,
-  100% {
-    transform: none;
-  }
+    0%,
+    100% {
+        transform: none;
+    }
 
-  50% {
-    transform:rotate(-25deg) translate3d(-45px, 30px, 0px);
-  }
+    50% {
+        transform: rotate(-25deg) translate3d(-45px, 30px, 0px);
+    }
 }
 
 .topCap {
-  animation-name: topCapCycle;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  transform: none;
-  animation-timing-function: cubic-bezier(0.19, 1, 0.2, 2);
+    animation-name: topCapCycle;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    transform: none;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.2, 2);
 }
 
 @keyframes topCapCycle {
-  0%,
-  100% {
-    transform: none;
-  }
+    0%,
+    100% {
+        transform: none;
+    }
 
-  50% {
-    transform: rotate(-25deg) translate3d(-15px, 0vw, 0px);
-  }
+    50% {
+        transform: rotate(-25deg) translate3d(-15px, 0vw, 0px);
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  .eqLogo {
-    width: 5rem;
-    height: 5rem;
-  }
+    .eqLogo {
+        width: 5rem;
+        height: 5rem;
+    }
 }
 
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+    .grid {
+        width: 100%;
+        flex-direction: column;
+    }
 }
 
 .footer {
-  font-size: 1rem;
-  text-align: center;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .socialNav {
-  font-size: 2rem;
-  transition: color 0.15s ease, border-color 0.15s ease;
+    font-size: 2rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .socialNav:hover,
 .socialNav:focus,
 .socialNav:active {
-  color: #0070f3;
-  border-color: #0070f3;
+    color: #0070f3;
+    border-color: #0070f3;
 }
