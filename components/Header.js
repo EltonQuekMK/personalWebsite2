@@ -23,7 +23,7 @@ export function TextAnimation() {
     const words = [
         'Software developer',
         'Caffeine aficionado',
-        'Coding...',
+        'Coding in progress...',
         'Part-time gymrat',
         'Full-time debugger',
     ];
