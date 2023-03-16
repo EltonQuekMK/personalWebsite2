@@ -3,11 +3,12 @@ import styles from '../styles/Home.module.css';
 
 const Logo = () => {
     const [animate, setAnimate] = useState(false);
+    
     useEffect(() => {
         triggerAnimation();
     }, []);
 
-    function triggerAnimation() {
+    const triggerAnimation = () => {
         setAnimate(true);
         const timer = setTimeout(() => {
             setAnimate(false);

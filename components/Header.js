@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import { Container } from '@mui/system';
 import Logo from '../components/Logo.js';
@@ -7,9 +7,10 @@ const Header = () => (
     <>
         <Container>
             <Logo />
-
             <div className={styles.bigWords}>
-                <div>I'm <span className={styles.name}>Elton Quek</span></div>
+                <div>
+                    I'm <span className={styles.name}>Elton Quek</span>
+                </div>
                 <TextAnimation />
             </div>
             <BackgroundAnimation />
