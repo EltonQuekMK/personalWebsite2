@@ -44,7 +44,7 @@ const Journey = () => (
             />
             <TimelineNode
                 logo={<BsBank2 />}
-                date='2021 - Today'
+                date='2021 - Now'
                 headerText='Credit Suisse'
                 bodyText='Working in a multi-national company with global and regional requirements and systems, where there is a 
                 need to interact and liaise with international teams and a complex suite of microservices.'

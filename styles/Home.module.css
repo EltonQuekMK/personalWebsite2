@@ -8,6 +8,10 @@
     background-color: aliceblue;
 }
 
+.headerContainer {
+    margin-top: 25px;
+}
+
 .bigWords {
     text-align: left;
     font-size: 9vw;
@@ -21,7 +25,7 @@
 }
 
 .name {
-    color: #0066FF;
+    color: #0066ff;
 }
 .textAnimation {
     opacity: 0;
@@ -225,6 +229,6 @@
     border-color: #0070f3;
 }
 
-.siteHeader{
-    color: #0066FF;
+.siteHeader {
+    color: #0066ff;
 }

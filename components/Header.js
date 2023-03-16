@@ -5,7 +5,7 @@ import Logo from '../components/Logo.js';
 
 const Header = () => (
     <>
-        <Container>
+        <Container className={styles.headerContainer}>
             <Logo />
             <div className={styles.bigWords}>
                 <div>
