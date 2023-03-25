@@ -9,7 +9,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Home() {
     let { scrollYProgress } = useScroll();
-    let y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+    let y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
 
     return (
         <div className={styles.container}>
@@ -24,9 +24,9 @@ export default function Home() {
                 style={{ y }}
                 className={styles.backgroundImage}
             />
-            <Header />
             <Container>
                 <main>
+                    <Header />
                     <div className={styles.mountainRange}>
                         <Image
                             src='mountainRange.svg'
@@ -35,9 +35,10 @@ export default function Home() {
                         />
                     </div>
                     <Journey />
+                    <Footer />
                 </main>
             </Container>
-            <Footer />
+            
 
             <style jsx>{`
                 main {
@@ -47,6 +48,8 @@ export default function Home() {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    position: relative;
+                    z-index: 2;
                 }
             `}</style>
 

@@ -25,7 +25,7 @@ export function TextAnimation() {
         'Software developer',
         'Caffeine aficionado',
         'Coding in progress...',
-        'Part-time gymrat',
+        'Part-time gym junkie',
         'Full-time debugger',
     ];
     const [index, setIndex] = useState(0);
