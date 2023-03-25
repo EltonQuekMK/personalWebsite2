@@ -66,7 +66,7 @@ const TimelineNode = (props) => (
         </TimelineOppositeContent>
         <TimelineSeparator>
             <TimelineConnector
-                sx={{ bgcolor: props.topConnectorColor || '#0066FF' }}
+                sx={{ bgcolor: props.topConnectorColor || '#0058dd' }}
             />
             <TimelineDot
                 color={props.dotColor || 'primary'}
@@ -75,14 +75,14 @@ const TimelineNode = (props) => (
                 {props.logo}
             </TimelineDot>
             <TimelineConnector
-                sx={{ bgcolor: props.botConnectorColor || '#0066FF' }}
+                sx={{ bgcolor: props.botConnectorColor || '#0058dd' }}
             />
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography
                 variant='h6'
                 component='span'
-                color={props.headerColor || '#0066FF'}
+                color={props.headerColor || '#0058dd'}
             >
                 {props.headerText}
             </Typography>

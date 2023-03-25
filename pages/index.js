@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Container } from '@mui/system';
 import Journey from '../components/Journey';
+import Image from 'next/image';
 
 export default function Home() {
     return (
@@ -19,6 +20,13 @@ export default function Home() {
 
             <Container>
                 <main>
+                    <div className={styles.mountainRange}>
+                        <Image
+                            src='mountainRange.svg'
+                            fill={true}
+                            alt='Picture'
+                        />
+                    </div>
                     <Journey />
                 </main>
             </Container>
@@ -32,33 +40,6 @@ export default function Home() {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                }
-                footer {
-                    width: 100%;
-                    height: 100px;
-                    border-top: 1px solid #eaeaea;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                footer img {
-                    margin-left: 0.5rem;
-                }
-                footer a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    text-decoration: none;
-                    color: inherit;
-                }
-                code {
-                    background: #fafafa;
-                    border-radius: 5px;
-                    padding: 0.75rem;
-                    font-size: 1.1rem;
-                    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-                        monospace;
                 }
             `}</style>
 
