@@ -5,8 +5,12 @@ import Footer from '../components/Footer';
 import { Container } from '@mui/system';
 import Journey from '../components/Journey';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Home() {
+    let { scrollYProgress } = useScroll();
+    let y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+
     return (
         <div className={styles.container}>
             <Head>
@@ -16,8 +20,11 @@ export default function Home() {
                     href='./eqLogo.svg'
                 />
             </Head>
+            <motion.div
+                style={{ y }}
+                className={styles.backgroundImage}
+            />
             <Header />
-
             <Container>
                 <main>
                     <div className={styles.mountainRange}>
@@ -51,9 +58,12 @@ export default function Home() {
                 body {
                     padding: 0;
                     margin: 0;
+                    min-height: 100%;
+                    position: relative;
                     font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
                         Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                         Helvetica Neue, sans-serif;
+                    background-color: #f0f8ff;
                 }
                 * {
                     box-sizing: border-box;

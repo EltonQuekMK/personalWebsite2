@@ -1,3 +1,16 @@
+.backgroundImage {
+    background-image: url('/circuitWires.png');
+    background-position-x: center;
+    background-repeat: repeat-y;
+    background-size: contain;
+    position: absolute;
+    opacity: 0.2;
+    height: 65%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
 .container {
     min-height: 100vh;
     padding: 0 0.5rem;
@@ -5,11 +18,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #F0F8FF;
 }
 
 .headerContainer {
     margin-top: 25px;
+    z-index: 1;
 }
 
 .bigWords {
@@ -151,7 +164,12 @@
     max-height: 500px;
 }
 
+.siteHeader {
+    color: #0058dd;
+}
+
 .footer {
+    margin-top: 25px;
     font-size: 1rem;
     text-align: center;
 }
@@ -168,6 +186,4 @@
     border-color: #0070f3;
 }
 
-.siteHeader {
-    color: #0058dd;
-}
+
