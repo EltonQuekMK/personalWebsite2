@@ -34,7 +34,7 @@ const Logo = () => {
                             id='Vector1'
                             d='M4.5 78.5V95.5H95.5V78.5'
                             stroke='#0058dd'
-                            stroke-width='5'
+                            strokeWidth='5'
                         />
                     </g>
                     <g
@@ -45,7 +45,7 @@ const Logo = () => {
                             id='Vector2'
                             d='M4.5 21.5V4.5H95.5V21.5'
                             stroke='#0058dd'
-                            stroke-width='5'
+                            strokeWidth='5'
                         />
                     </g>
                     <g id='letters'>
