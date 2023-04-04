@@ -58,8 +58,8 @@ export default function MountainRange() {
                     cx='893'
                     cy='85'
                     r='50'
-                    stroke='#0066FF'
-                    strokeWidth={18}
+                    stroke='#FF4D00'
+                    strokeWidth={20}
                     strokeLinecap='round'
                     fill='none'
                     variants={circleStroke}
@@ -70,7 +70,7 @@ export default function MountainRange() {
                     cx='893'
                     cy='85'
                     r='50'
-                    fill='#0066FF'
+                    fill='#FF4D00'
                     variants={circleFill}
                     initial='hidden'
                     animate='visible'

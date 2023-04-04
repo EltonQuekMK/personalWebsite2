@@ -29,10 +29,8 @@ export default function Home() {
                 <main>
                     <Header />
                     <div className={styles.mountainRange}>
-                    <MountainRange />
-
+                        <MountainRange />
                     </div>
-
                     <Journey />
                     <Footer />
                 </main>
