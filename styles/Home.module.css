@@ -30,15 +30,10 @@
     font-weight: 700;
 }
 
-@media screen and (min-width: 1200px) {
-    .bigWords {
-        font-size: 7rem;
-    }
-}
-
 .name {
     color: #0058dd;
 }
+
 .textAnimation {
     opacity: 0;
     animation-name: cycle;
@@ -46,6 +41,15 @@
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     content: '';
+    font-size: 8vw;
+}
+@media screen and (min-width: 1200px) {
+    .bigWords {
+        font-size: 7rem;
+    }
+    .textAnimation {
+        font-size: 6rem;
+    }
 }
 
 @keyframes cycle {
@@ -163,6 +167,32 @@
     max-height: 500px;
 }
 
+.transitionDiv {
+    position: fixed;
+    overflow: hidden;
+    width: 95vw;
+    height: 100vh;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: scale(3);
+}
+
+/* 
+    transitionDiv is:       position: fixed;        overflow: hidden; 
+    transitionSvg is:   position: absolute;     overflow: visible;
+    so that the svg can overflow out of the div without making the page scrollable
+*/
+
+.transitionSvg {
+    position: absolute;
+    overflow: visible;
+    top: 0;
+    left: 0;
+}
+
 .siteHeader {
     color: #0058dd;
 }
@@ -184,5 +214,3 @@
     color: #0070f3;
     border-color: #0070f3;
 }
-
-

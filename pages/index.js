@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Container } from '@mui/system';
 import Journey from '../components/Journey';
-import Image from 'next/image';
+import TransitionLine from '../components/TransitionLine';
 import MountainRange from '../components/MountainRange';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -25,6 +25,9 @@ export default function Home() {
                 style={{ y }}
                 className={styles.backgroundImage}
             />
+            <div className={styles.transitionDiv}>
+                <TransitionLine />
+            </div>
             <Container>
                 <main>
                     <Header />

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import styles from '../styles/Home.module.css';
 
 const transition = {
     delay: 1,
@@ -15,24 +14,24 @@ const circleStroke = {
         transform: 'rotate(135deg)',
         transition: {
             delay: 3,
-            pathLength: { type: 'spring', duration: 1.5, bounce: 0 }
+            pathLength: { type: 'spring', duration: 1.5, bounce: 0 },
         },
     },
 };
 
 const circleFill = {
     hidden: {
-      pathLength: 0,
-      opacity: 0
+        pathLength: 0,
+        opacity: 0,
     },
     visible: {
-      pathLength: 1,
-      transition: {
-        delay: 4,
-      },
-      opacity: 1
-    }
-  }
+        pathLength: 1,
+        transition: {
+            delay: 4,
+        },
+        opacity: 1,
+    },
+};
 
 export default function MountainRange() {
     return (
@@ -63,8 +62,6 @@ export default function MountainRange() {
                     strokeLinecap='round'
                     fill='none'
                     variants={circleStroke}
-                    initial='hidden'
-                    animate='visible'
                 />
                 <motion.circle
                     cx='893'
@@ -72,8 +69,6 @@ export default function MountainRange() {
                     r='50'
                     fill='#FF4D00'
                     variants={circleFill}
-                    initial='hidden'
-                    animate='visible'
                 />
                 <path
                     fillRule='evenodd'
