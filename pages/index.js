@@ -25,9 +25,7 @@ export default function Home() {
                 style={{ y }}
                 className={styles.backgroundImage}
             />
-            <div className={styles.transitionDiv}>
-                <TransitionLine />
-            </div>
+            <TransitionLine />
             <Container>
                 <main>
                     <Header />
