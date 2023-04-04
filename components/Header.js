@@ -13,7 +13,6 @@ const Header = () => (
                 </div>
                 <TextAnimation />
             </div>
-            <BackgroundAnimation />
         </Container>
     </>
 );
@@ -25,7 +24,7 @@ export function TextAnimation() {
         'Software developer',
         'Caffeine aficionado',
         'Coding in progress...',
-        'Part-time gymjunkie',
+        'Part-time gymrat',
         'Full-time debugger',
     ];
     const [index, setIndex] = useState(0);
@@ -40,6 +39,7 @@ export function TextAnimation() {
 
         return () => clearInterval(interval);
     });
+
     return (
         <div
             key={words[index]}
@@ -49,6 +49,3 @@ export function TextAnimation() {
         </div>
     );
 }
-const BackgroundAnimation = () => {
-    return <></>;
-};

@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { Container } from '@mui/system';
 import Journey from '../components/Journey';
 import Image from 'next/image';
+import MountainRange from '../components/MountainRange';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Home() {
@@ -28,17 +29,14 @@ export default function Home() {
                 <main>
                     <Header />
                     <div className={styles.mountainRange}>
-                        <Image
-                            src='mountainRange.svg'
-                            fill={true}
-                            alt='Picture'
-                        />
+                    <MountainRange />
+
                     </div>
+
                     <Journey />
                     <Footer />
                 </main>
             </Container>
-            
 
             <style jsx>{`
                 main {
