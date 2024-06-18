@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import { IoIosBook } from 'react-icons/io';
 import { AiFillCode } from 'react-icons/ai';
 import { BsBank2 } from 'react-icons/bs';
-import { FaStar } from "react-icons/fa";
+import { FaStar } from 'react-icons/fa';
 import Divider from '@mui/material/Divider';
 import styles from '../styles/Home.module.css';
 
@@ -30,18 +30,10 @@ const Journey = () => (
                 <h1 className={styles.siteHeader}>Journey</h1>
             </Divider>
             <TimelineNode
-                logo={<IoIosBook />}
-                date='2013 - 2017'
-                headerText='Nanyang Technological University'
-                bodyText='Graduated with a Double Degree in Computer Science and Business.'
-            />
-            <TimelineNode
-                logo={<AiFillCode />}
-                date='2017 - 2021'
-                headerText='CrimsonLogic'
-                bodyText='My first foray into the world of software development as a professional.
-                Had a hand in various projects as part of the graduate rotation program.
-                Learning the ins and outs of coding as well as mentoring fresh grad juniors.'
+                logo={<FaStar />}
+                date='2023 - Now'
+                headerText='A*STAR'
+                bodyText='Developing along side scientists and researchers, utilizing new technologies to upgrade Singapore towards an innovation-driven economy'
             />
             <TimelineNode
                 logo={<BsBank2 />}
@@ -51,10 +43,18 @@ const Journey = () => (
                 need to interact and liaise with international teams and a complex suite of microservices.'
             />
             <TimelineNode
-                logo={<FaStar />}
-                date='2023 - Now'
-                headerText='A*STAR'
-                bodyText='Developing along side scientists and researchers, utilizing new technologies to upgrade Singapore towards an innovation-driven economy'
+                logo={<AiFillCode />}
+                date='2017 - 2021'
+                headerText='CrimsonLogic'
+                bodyText='My first foray into the world of software development as a professional.
+                Had a hand in various projects as part of the graduate rotation program.
+                Learning the ins and outs of coding as well as mentoring fresh grad juniors.'
+            />{' '}
+            <TimelineNode
+                logo={<IoIosBook />}
+                date='2013 - 2017'
+                headerText='Nanyang Technological University'
+                bodyText='Graduated with a Double Degree in Computer Science and Business.'
             />
         </Timeline>
     </>
