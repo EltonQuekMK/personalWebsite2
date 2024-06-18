@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import { IoIosBook } from 'react-icons/io';
 import { AiFillCode } from 'react-icons/ai';
 import { BsBank2 } from 'react-icons/bs';
+import { FaStar } from "react-icons/fa";
 import Divider from '@mui/material/Divider';
 import styles from '../styles/Home.module.css';
 
@@ -44,10 +45,16 @@ const Journey = () => (
             />
             <TimelineNode
                 logo={<BsBank2 />}
-                date='2021 - Now'
+                date='2021 - 2023'
                 headerText='Credit Suisse'
                 bodyText='Working in a multi-national company with global and regional requirements and systems, where there is a 
                 need to interact and liaise with international teams and a complex suite of microservices.'
+            />
+            <TimelineNode
+                logo={<FaStar />}
+                date='2023 - Now'
+                headerText='A*STAR'
+                bodyText='Developing along side scientists and researchers, utilizing new technologies to upgrade Singapore towards an innovation-driven economy'
             />
         </Timeline>
     </>
