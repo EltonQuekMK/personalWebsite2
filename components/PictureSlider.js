@@ -12,9 +12,9 @@ export default function PictureSlider() {
     const isSmall = useIsSmall();
 
     useEffect(() => {
-        setPhoto1position(isSmall ? "calc((100vw - 320px)/2)" : "30px");
+        setPhoto1position(isSmall ? "calc((100vw - 340px)/2)" : "30px");
     }, [isSmall]);
-    
+
     return (
         <>
             <Box sx={{ height: "400px", width: "100vw", backgroundColor: "#0058DD" }}>
@@ -25,8 +25,8 @@ export default function PictureSlider() {
                             whileInView={{ rotate: 7 }}
                             viewport={{ once: true, amount: 0.9 }}
                             className={styles.image}
-                            initial={{ y: -10, maxWidth: 320, borderRadius: "800px 800px 16px 16px" }}
-                            animate={{ x: photo1position }}
+                            initial={{ y: -10, rotate: 0, maxWidth: 320, borderRadius: "800px 800px 16px 16px" }}
+                            animate={{ x: photo1position}}
                             src={`images/CorporatePic.jpg`}
                             alt=""
                         />
