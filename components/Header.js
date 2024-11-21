@@ -30,7 +30,7 @@ export function TextAnimation() {
     const [index, setIndex] = useState(0);
     const [rotation, setRotation] = useState(0.5);
 
-    const maxRotate = 8;
+    const maxRotate = 7;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -47,7 +47,6 @@ export function TextAnimation() {
         return () => clearInterval(interval);
     });
 
-    console.log(rotation)
     return (
         <motion.div
             key={words[index]}

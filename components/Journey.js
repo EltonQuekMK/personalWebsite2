@@ -68,9 +68,6 @@ function TimelineNode(props) {
     const ref = useRef();
     const isInView = useInView(ref, { once: true, amount: "some" });
 
-    if (isInView) {
-        console.log(props.headerText);
-    }
     return (
         <TimelineItem
             ref={ref}

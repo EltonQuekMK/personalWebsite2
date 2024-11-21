@@ -47,7 +47,7 @@
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     content: ''; */
-    font-size: 2rem;
+    font-size: 6vw;
     display: flex;
     width: fit-content;
     height: fit-content;
