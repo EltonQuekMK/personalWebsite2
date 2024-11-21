@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
+import { motion } from "framer-motion";
 
 const Logo = () => {
     const [animate, setAnimate] = useState(false);
-    
+
     useEffect(() => {
         triggerAnimation();
     }, []);
@@ -17,7 +18,20 @@ const Logo = () => {
     }
 
     return (
-        <div className={styles.eqLogo}>
+        <motion.div
+            className={styles.eqLogo}
+            animate={{
+                scale: [1, 2, 2, 1, 1],
+                rotate: [0, 0, 180, 180, 0],
+                borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+            }}
+            transition={{
+                duration: 2,
+                ease: "easeInOut",
+                times: [0, 0.2, 0.5, 0.8, 1],
+                repeat: Infinity,
+                repeatDelay: 5
+            }}>
             <svg
                 viewBox='0 0 100 100'
                 fill='none'
@@ -62,7 +76,7 @@ const Logo = () => {
                     </g>
                 </g>
             </svg>
-        </div>
+        </motion.div>
     );
 };
 

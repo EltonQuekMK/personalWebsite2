@@ -1,17 +1,14 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { Container } from '@mui/system';
+import Head from 'next/head';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import Journey from '../components/Journey';
-import TransitionLine from '../components/TransitionLine';
 import MountainRange from '../components/MountainRange';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import PictureSlider from '../components/PictureSlider';
+import TransitionLine from '../components/TransitionLine';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
-    let { scrollYProgress } = useScroll();
-    let y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-
     return (
         <div className={styles.container}>
             <Head>
@@ -21,10 +18,10 @@ export default function Home() {
                     href='./eqLogo.svg'
                 />
             </Head>
-            <motion.div
+            {/* <motion.div
                 style={{ y }}
                 className={styles.backgroundImage}
-            />
+            /> */}
             <TransitionLine />
             <Container>
                 <main>
@@ -32,6 +29,7 @@ export default function Home() {
                     <div className={styles.mountainRange}>
                         <MountainRange />
                     </div>
+                    <PictureSlider/>
                     <Journey />
                     <Footer />
                 </main>
@@ -39,7 +37,7 @@ export default function Home() {
 
             <style jsx>{`
                 main {
-                    padding: 5rem 0;
+                    padding: 3rem 0;
                     flex: 1;
                     display: flex;
                     flex-direction: column;
@@ -64,6 +62,7 @@ export default function Home() {
                         Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                         Helvetica Neue, sans-serif;
                     background-color: #f0f8ff;
+                    overflow-x: hidden; /* Lock scrolling on the x-axis */
                 }
                 * {
                     box-sizing: border-box;

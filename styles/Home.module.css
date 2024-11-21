@@ -25,6 +25,7 @@
 }
 
 .bigWords {
+    /* font-family: "Nitti Mostro Comic Solid", "Nitti Mostro Comic Solid Placeholder", sans-serif; */
     text-align: left;
     font-size: 9vw;
     font-weight: 700;
@@ -35,20 +36,33 @@
 }
 
 .textAnimation {
-    opacity: 0;
+    /* font-family: "Nitti Mostro Comic Solid", "Nitti Mostro Comic Solid Placeholder", sans-serif; */
+    font-weight: 900;
+    border-radius: 40px;
+    background: #ffc36a;
+    color:#c07300;
+    /* opacity: 0;
     animation-name: cycle;
     animation-duration: 3000ms;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
-    content: '';
-    font-size: 8vw;
+    content: ''; */
+    font-size: 2rem;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    padding: 0px 15px;
+    text-transform: uppercase;
+    text-align: center;
 }
+
 @media screen and (min-width: 1200px) {
     .bigWords {
         font-size: 7rem;
     }
+
     .textAnimation {
-        font-size: 6rem;
+        font-size: 5rem;
     }
 }
 
@@ -114,6 +128,7 @@
 }
 
 @keyframes botCapCycle {
+
     0%,
     100% {
         transform: none;
@@ -134,6 +149,7 @@
 }
 
 @keyframes topCapCycle {
+
     0%,
     100% {
         transform: none;
@@ -213,4 +229,10 @@
 .socialNav:active {
     color: #0070f3;
     border-color: #0070f3;
+}
+
+.image {
+    /* max-width: 320px;
+    border-radius: 800px 800px 16px 16px; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
