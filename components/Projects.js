@@ -12,7 +12,7 @@ const projects = [
         technologies: ["Next.js", "React", "Material-UI", "Framer Motion", "Vercel"],
         githubUrl: "https://github.com/EltonQuekMK/personalWebsite2",
         liveUrl: "https://eltonquek.vercel.app",
-        achievements: ["100% Lighthouse Performance", "Responsive Design", "SEO Optimized"],
+        achievements: ["Continuous Deployment", "Responsive Design", "Interactive Elements", "Modular Components", ],
         colorMain: '#a855f7',
         colorSecondary: '#ec4899',
         bgColor: '#fdf4ff'
@@ -44,16 +44,15 @@ const projects = [
 
 function ProjectCard({ project, index }) {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, threshold: 0.2, rootMargin: "50px" });
+    const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
 
     return (
         <Grid item xs={12} md={6} lg={4}>
             <motion.div
                 ref={ref}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -8, scale: 1.02 }}
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.9 }}
+                transition={'all 0.3s ease'}
             >
                 <Card
                     elevation={4}

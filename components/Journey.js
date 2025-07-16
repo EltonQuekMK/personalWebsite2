@@ -154,7 +154,7 @@ function TimelineNode({ item, index, isLeft }) {
             <motion.div
                 initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -100 : 100 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={'all 0.3s ease'}
                 style={{ 
                     width: '100%', 
                     maxWidth: { xs: '100%', md: '45%' },

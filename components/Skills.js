@@ -2,65 +2,64 @@ import { Box, Container, Grid, LinearProgress, Paper, Typography } from '@mui/ma
 import { motion, useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { FaCode, FaDatabase, FaJava, FaNodeJs, FaReact, FaTools } from 'react-icons/fa';
-import { SiDocker, SiGit, SiJavascript, SiNextdotjs, SiRedux, SiTypescript } from 'react-icons/si';
+import { SiAzuredevops, SiCsharp, SiDocker, SiDotnet, SiGit, SiGitlab, SiHtml5, SiJavascript, SiJunit5, SiMongodb, SiMysql, SiNextdotjs, SiOracle, SiRedux, SiSonarqube, SiSpring, SiTypescript, SiUnity } from 'react-icons/si';
 import styles from '../styles/Home.module.css';
 import { scrollToContact } from '../utils/scrollUtils';
 
 const skillCategories = [
     {
         category: "Frontend Development",
-        icon: <FaReact className="text-3xl text-blue-500" />,
+        icon: <FaReact style={{ fontSize: '2rem', color: '#3b82f6' }} />,
         color: "from-blue-500 to-cyan-500",
         bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
         skills: [
-            { name: "ReactJS", level: 95, icon: <FaReact className="text-blue-500" /> },
-            { name: "TypeScript", level: 92, icon: <SiTypescript className="text-blue-600" /> },
-            { name: "JavaScript (ES6+)", level: 95, icon: <SiJavascript className="text-yellow-500" /> },
-            { name: "NextJS", level: 90, icon: <SiNextdotjs className="text-black" /> },
-            { name: "Redux", level: 88, icon: <SiRedux className="text-purple-600" /> },
-            { name: "HTML5/CSS3", level: 90, icon: <FaCode className="text-orange-500" /> }
+            { name: "ReactJS", level: 95, icon: <FaReact style={{ color: '#3b82f6' }} /> },
+            { name: "TypeScript", level: 95, icon: <SiTypescript style={{ color: '#2563eb' }} /> },
+            { name: "JavaScript", level: 95, icon: <SiJavascript style={{ color: '#eab308' }} /> },
+            { name: "NextJS", level: 90, icon: <SiNextdotjs style={{ color: '#000000' }} /> },
+            { name: "Redux", level: 80, icon: <SiRedux style={{ color: '#9333ea' }} /> },
+            { name: "HTML5/CSS3", level: 90, icon: <SiHtml5 style={{ color: '#f97316' }} /> }
         ]
     },
     {
         category: "Backend & Frameworks",
-        icon: <FaNodeJs className="text-3xl text-green-500" />,
+        icon: <FaNodeJs style={{ fontSize: '2rem', color: '#10b981' }} />,
         color: "from-green-500 to-emerald-500",
         bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
         skills: [
-            { name: "NodeJS", level: 85, icon: <FaNodeJs className="text-green-500" /> },
-            { name: "Java 11", level: 88, icon: <FaJava className="text-red-600" /> },
-            { name: "C#/.NET Core", level: 85, icon: <FaCode className="text-purple-600" /> },
-            { name: "REST APIs", level: 92, icon: <FaCode className="text-blue-500" /> },
-            { name: "Spring/Micronaut", level: 80, icon: <FaCode className="text-green-600" /> },
-            { name: "WebSockets", level: 85, icon: <FaCode className="text-indigo-500" /> }
+            { name: "NodeJS", level: 85, icon: <FaNodeJs style={{ color: '#10b981' }} /> },
+            { name: "Java", level: 85, icon: <FaJava style={{ color: '#dc2626' }} /> },
+            { name: "C#", level: 85, icon: <SiCsharp style={{ color: '#9333ea' }} /> },
+            { name: ".NET Core", level: 80, icon: <SiDotnet style={{ color: '#3b82f6' }} /> },
+            { name: "Spring", level: 80, icon: <SiSpring style={{ color: '#059669' }} /> },
+            { name: "WebSockets", level: 85, icon: <FaCode style={{ color: '#6366f1' }} /> }
         ]
     },
     {
         category: "Database & DevOps",
-        icon: <FaDatabase className="text-3xl text-purple-500" />,
+        icon: <FaDatabase style={{ fontSize: '2rem', color: '#a855f7' }} />,
         color: "from-purple-500 to-pink-500",
         bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
         skills: [
-            { name: "MySQL", level: 85, icon: <FaDatabase className="text-blue-600" /> },
-            { name: "MongoDB", level: 80, icon: <FaDatabase className="text-green-600" /> },
-            { name: "Oracle SQL/MSSQL", level: 78, icon: <FaDatabase className="text-red-600" /> },
-            { name: "Docker", level: 85, icon: <SiDocker className="text-blue-500" /> },
-            { name: "GitLab CI/CD", level: 88, icon: <FaTools className="text-orange-600" /> },
-            { name: "Azure DevOps", level: 82, icon: <FaTools className="text-blue-600" /> }
+            { name: "MySQL", level: 85, icon: <SiMysql style={{ color: '#2563eb' }} /> },
+            { name: "MongoDB", level: 80, icon: <SiMongodb style={{ color: '#059669' }} /> },
+            { name: "Oracle SQL/MSSQL", level: 80, icon: <SiOracle style={{ color: '#dc2626' }} /> },
+            { name: "Docker", level: 75, icon: <SiDocker style={{ color: '#3b82f6' }} /> },
+            { name: "GitLab CI/CD", level: 90, icon: <SiGitlab style={{ color: '#ea580c' }} /> },
+            { name: "Azure DevOps", level: 80, icon: <SiAzuredevops style={{ color: '#2563eb' }} /> }
         ]
     },
     {
         category: "Testing & Tools",
-        icon: <FaTools className="text-3xl text-orange-500" />,
+        icon: <FaTools style={{ fontSize: '2rem', color: '#f97316' }} />,
         color: "from-orange-500 to-red-500",
         bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
         skills: [
-            { name: "Jest/Testing", level: 88, icon: <FaTools className="text-red-600" /> },
-            { name: "JUnit/Mockito", level: 85, icon: <FaTools className="text-green-600" /> },
-            { name: "TDD", level: 85, icon: <FaCode className="text-blue-600" /> },
-            { name: "Git", level: 95, icon: <SiGit className="text-orange-600" /> },
-            { name: "SonarQube", level: 80, icon: <FaTools className="text-blue-500" /> },
-            { name: "Unity/C#", level: 75, icon: <FaCode className="text-purple-500" /> }
+            { name: "JUnit", level: 85, icon: <SiJunit5 style={{ color: '#059669' }} /> },
+            { name: "Test Driven Development", level: 85, icon: <FaCode style={{ color: '#2563eb' }} /> },
+            { name: "Git", level: 95, icon: <SiGit style={{ color: '#ea580c' }} /> },
+            { name: "SonarQube", level: 80, icon: <SiSonarqube style={{ color: '#3b82f6' }} /> },
+            { name: "Unity", level: 75, icon: <SiUnity style={{ color: '#a855f7' }} /> }
         ]
     }
 ];
@@ -68,19 +67,19 @@ const skillCategories = [
 function SkillBar({ skill, index, isInView }) {
     const [animatedValue, setAnimatedValue] = useState(0);
     const [progressValue, setProgressValue] = useState(0);
-    
+
     useEffect(() => {
         if (isInView) {
             // Animate the progress bar value
             const progressTimer = setTimeout(() => {
                 setProgressValue(skill.level);
             }, index * 100);
-            
+
             // Animate the percentage text
             const textTimer = setTimeout(() => {
                 setAnimatedValue(skill.level);
             }, index * 100 + 200);
-            
+
             return () => {
                 clearTimeout(progressTimer);
                 clearTimeout(textTimer);
@@ -155,7 +154,7 @@ function SkillBar({ skill, index, isInView }) {
 
 function SkillCategory({ category, index }) {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, threshold: 0.2 });
+    const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
 
     return (
         <Grid item xs={12} sm={6} lg={3}>
@@ -164,7 +163,6 @@ function SkillCategory({ category, index }) {
                 initial={{ opacity: 0, y: 80, rotateX: -15 }}
                 animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 80, rotateX: -15 }}
                 transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-                whileHover={{ y: -8, scale: 1.02 }}
             >
                 <Paper
                     elevation={4}
@@ -174,9 +172,9 @@ function SkillCategory({ category, index }) {
                         p: 3,
                         borderRadius: 3,
                         background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#f0f9ff, #e0f2fe' :
-                                category.category === "Backend & Frameworks" ? '#f0fdf4, #dcfce7' :
-                                    category.category === "Database & DevOps" ? '#fdf4ff, #fae8ff' :
-                                        '#fff7ed, #fed7aa'
+                            category.category === "Backend & Frameworks" ? '#f0fdf4, #dcfce7' :
+                                category.category === "Database & DevOps" ? '#fdf4ff, #fae8ff' :
+                                    '#fff7ed, #fed7aa'
                             })`,
                         border: '1px solid rgba(255,255,255,0.2)',
                         position: 'relative',
@@ -192,9 +190,9 @@ function SkillCategory({ category, index }) {
                             right: 0,
                             height: '4px',
                             background: `linear-gradient(90deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                            '#f97316, #dc2626'
+                                category.category === "Backend & Frameworks" ? '#10b981, #059669' :
+                                    category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
+                                        '#f97316, #dc2626'
                                 })`,
                         }
                     }}
@@ -225,9 +223,9 @@ function SkillCategory({ category, index }) {
                             fontWeight={700}
                             sx={{
                                 background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                        category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                            category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                                '#f97316, #dc2626'
+                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
+                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
+                                            '#f97316, #dc2626'
                                     })`,
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
@@ -244,9 +242,9 @@ function SkillCategory({ category, index }) {
                             style={{
                                 height: '3px',
                                 background: `linear-gradient(90deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                        category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                            category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                                '#f97316, #dc2626'
+                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
+                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
+                                            '#f97316, #dc2626'
                                     })`,
                                 borderRadius: '2px'
                             }}
@@ -440,7 +438,12 @@ export default function Skills() {
                     </Box>
                 </motion.div>
             </Container>
-
+            <style jsx>{`
+                @keyframes shimmer {
+                    0% { transform: translateX(-100%); }
+                    100% { transform: translateX(100%); }
+                }
+            `}</style>
         </Box>
     );
 }
