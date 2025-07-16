@@ -28,15 +28,15 @@ export default function PictureSlider() {
             <Container maxWidth="xl" sx={{ position: 'relative', height: '100%' }}>
                 {/* Text content */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    // initial={{ opacity: 0, x: -50 }}
+                    // animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                    // transition={{ duration: 0.8, delay: 0.3 }}
                 >
                     <Box
                         sx={{
                             position: 'absolute',
                             right: { xs: '20px', md: '80px' },
-                            top: { xs: '90%', md: '50%' },
+                            top: { xs: '85%', md: '50%' },
                             transform: 'translateY(-50%)',
                             zIndex: 11,
                             textAlign: { xs: 'center', md: 'right' },
