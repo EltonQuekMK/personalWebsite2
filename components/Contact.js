@@ -1,5 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { IoDocument, IoLogoGithub, IoLogoLinkedin, IoMail } from 'react-icons/io5';
 
@@ -157,51 +158,50 @@ export default function Contact() {
                                             background: `linear-gradient(135deg, ${option.colorMain}, ${option.colorSecondary})`
                                         }}
                                     >
-                                        <Button
-                                            href={option.href}
-                                            target={'_blank'}
-                                            rel={option.href.startsWith('http') ? 'noopener noreferrer' : ''}
-                                            fullWidth
-                                            sx={{
-                                                p: 3,
-                                                borderRadius: 3,
-                                                background: 'transparent',
-                                                color: 'white',
-                                                textTransform: 'none',
-                                                flexDirection: 'column',
-                                                gap: 2,
-                                                minHeight: '120px',
-                                                transition: 'box-shadow 0.3s ease',
-                                                '&:hover': {
+                                        <Link href={option.href} target="_blank" rel={option.href.startsWith('http') ? 'noopener noreferrer' : ''} style={{ textDecoration: 'none', width: '100%' }}>
+                                            <Button
+                                                fullWidth
+                                                sx={{
+                                                    p: 3,
+                                                    borderRadius: 3,
                                                     background: 'transparent',
-                                                    boxShadow: `0 8px 25px ${option.colorMain}40`
-                                                }
-                                            }}
-                                        >
-                                        <motion.div
-                                            whileHover={{ scale: 1.2, rotate: 10 }}
-                                            style={{
-                                                padding: '12px',
-                                                background: 'rgba(255,255,255,0.2)',
-                                                borderRadius: '50%',
-                                                fontSize: '2rem',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                width: '48px',
-                                                height: '48px'
-                                            }}
-                                        >
-                                            {option.icon}
-                                        </motion.div>
-                                        <Box>
-                                            <Typography variant="h6" sx={{ fontWeight: 600, textAlign: 'center' }}>
-                                                {option.label}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                                                {option.description}
-                                            </Typography>
-                                        </Box>                                        </Button>
+                                                    color: 'white',
+                                                    textTransform: 'none',
+                                                    flexDirection: 'column',
+                                                    gap: 2,
+                                                    minHeight: '120px',
+                                                    transition: 'box-shadow 0.3s ease',
+                                                    '&:hover': {
+                                                        background: 'transparent',
+                                                        boxShadow: `0 8px 25px ${option.colorMain}40`
+                                                    }
+                                                }}
+                                            >
+                                                <motion.div
+                                                    whileHover={{ scale: 1.2, rotate: 10 }}
+                                                    style={{
+                                                        padding: '12px',
+                                                        background: 'rgba(255,255,255,0.2)',
+                                                        borderRadius: '50%',
+                                                        fontSize: '2rem',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        width: '48px',
+                                                        height: '48px'
+                                                    }}
+                                                >
+                                                    {option.icon}
+                                                </motion.div>
+                                                <Box>
+                                                    <Typography variant="h6" sx={{ fontWeight: 600, textAlign: 'center' }}>
+                                                        {option.label}
+                                                    </Typography>
+                                                    <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                                                        {option.description}
+                                                    </Typography>
+                                                </Box>                                        </Button>
+                                        </Link>
                                     </motion.div>
                                 </motion.div>
                             </Grid>

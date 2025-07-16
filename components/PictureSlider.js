@@ -31,44 +31,47 @@ export default function PictureSlider() {
                     initial={{ opacity: 0, x: -50 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    style={{
-                        position: 'absolute',
-                        right: isSmall ? '20px' : '80px',
-                        top: isSmall ? '80%' : '50%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 11,
-                        textAlign: isSmall ? 'center' : 'right',
-                        ...(isSmall && {
-                            background: 'rgba(0, 0, 0, 0.3)',
-                            backdropFilter: 'blur(8px)',
-                            borderRadius: '16px',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
-                        })
-                    }}
                 >
-                    <Typography
-                        variant="h3"
+                    <Box
                         sx={{
-                            color: 'white',
-                            fontWeight: 700,
-                            fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem' },
-                            mb: 2
+                            position: 'absolute',
+                            right: { xs: '20px', md: '80px' },
+                            top: { xs: '90%', md: '50%' },
+                            transform: 'translateY(-50%)',
+                            zIndex: 11,
+                            textAlign: { xs: 'center', md: 'right' },
+                            // Mobile background styling
+                            background: { xs: 'rgba(0, 0, 0, 0.3)', md: 'transparent' },
+                            backdropFilter: { xs: 'blur(8px)', md: 'none' },
+                            borderRadius: { xs: '16px', md: 0 },
+                            border: { xs: '1px solid rgba(255, 255, 255, 0.1)', md: 'none' },
+                            boxShadow: { xs: '0 8px 32px rgba(0, 0, 0, 0.2)', md: 'none' },
+                            // Add padding for mobile to prevent text from touching edges
+                            p: { xs: 1, md: 0 }
                         }}
                     >
-                        Meet Elton
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: 'rgba(255, 255, 255, 0.9)',
-                            fontSize: { xs: '1rem', md: '1.2rem' },
-                            maxWidth: '300px',
-                            lineHeight: 1.6
-                        }}
-                    >
-                        Passionate about creating digital solutions that make a difference
-                    </Typography>
+                        <Typography
+                            variant="h3"
+                            sx={{
+                                color: 'white',
+                                fontWeight: 700,
+                                fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem' },
+                                mb: 2
+                            }}
+                        >
+                            Meet Elton
+                        </Typography>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                fontSize: { xs: '1rem', md: '1.2rem' },
+                                maxWidth: '300px',
+                                lineHeight: 1.6
+                            }}                        >
+                            Passionate about creating digital solutions that make a difference
+                        </Typography>
+                    </Box>
                 </motion.div>
 
                 {/* Profile image */}

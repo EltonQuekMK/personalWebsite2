@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, Chip, Container, Grid, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { FaAward, FaCode, FaExternalLinkAlt } from 'react-icons/fa';
 import { IoLogoGithub } from 'react-icons/io5';
@@ -12,7 +13,7 @@ const projects = [
         technologies: ["Next.js", "React", "Material-UI", "Framer Motion", "Vercel"],
         githubUrl: "https://github.com/EltonQuekMK/personalWebsite2",
         liveUrl: "https://eltonquek.vercel.app",
-        achievements: ["Continuous Deployment", "Responsive Design", "Interactive Elements", "Modular Components", ],
+        achievements: ["Continuous Deployment", "Responsive Design", "Interactive Elements", "Modular Components",],
         colorMain: '#a855f7',
         colorSecondary: '#ec4899',
         bgColor: '#fdf4ff'
@@ -199,31 +200,31 @@ function ProjectCard({ project, index }) {
                                 whileTap={{ scale: 0.95 }}
                                 style={{ flex: 1 }}
                             >
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    startIcon={<IoLogoGithub />}
-                                    href={project.githubUrl}
-                                    target="_blank"
-                                    sx={{
-                                        backgroundColor: '#24292e',
-                                        color: 'white',
-                                        fontWeight: 600,
-                                        py: 1.5,
-                                        borderRadius: 2,
-                                        fontSize: { xs: '0.75rem', sm: '0.875rem' }, // Smaller text on mobile
-                                        '&:hover': {
-                                            backgroundColor: '#1a1e22'
-                                        }
-                                    }}
-                                >
-                                    <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-                                        View Code
-                                    </Box>
-                                    <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
-                                        Code
-                                    </Box>
-                                </Button>
+                                <Link href={project.githubUrl} target="_blank" style={{ textDecoration: 'none', width: '100%' }}>
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        startIcon={<IoLogoGithub />}
+                                        sx={{
+                                            backgroundColor: '#24292e',
+                                            color: 'white',
+                                            fontWeight: 600,
+                                            py: 1.5,
+                                            borderRadius: 2,
+                                            fontSize: { xs: '0.75rem', sm: '0.875rem' }, // Smaller text on mobile
+                                            '&:hover': {
+                                                backgroundColor: '#1a1e22'
+                                            }
+                                        }}
+                                    >
+                                        <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                                            View Code
+                                        </Box>
+                                        <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                            Code
+                                        </Box>
+                                    </Button>
+                                </Link>
                             </motion.div>
 
                             <motion.div
@@ -247,33 +248,33 @@ function ProjectCard({ project, index }) {
                                         background: `linear-gradient(135deg, ${project.colorMain}, ${project.colorSecondary})`
                                     }}
                                 >
-                                    <Button
-                                        fullWidth
-                                        variant="contained"
-                                        startIcon={<FaExternalLinkAlt />}
-                                        href={project.liveUrl}
-                                        target="_blank"
-                                        sx={{
-                                            background: 'transparent',
-                                            color: 'white',
-                                            fontWeight: 600,
-                                            py: 1.5,
-                                            borderRadius: 2,
-                                            boxShadow: 'none',
-                                            fontSize: { xs: '0.75rem', sm: '0.875rem' }, // Smaller text on mobile
-                                            '&:hover': {
+                                    <Link href={project.liveUrl} target="_blank" style={{ textDecoration: 'none', width: '100%' }}>
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            startIcon={<FaExternalLinkAlt />}
+                                            sx={{
                                                 background: 'transparent',
-                                                boxShadow: 'none'
-                                            }
-                                        }}
-                                    >
-                                        <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-                                            Live Demo
-                                        </Box>
-                                        <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
-                                            Demo
-                                        </Box>
-                                    </Button>
+                                                color: 'white',
+                                                fontWeight: 600,
+                                                py: 1.5,
+                                                borderRadius: 2,
+                                                boxShadow: 'none',
+                                                fontSize: { xs: '0.75rem', sm: '0.875rem' }, // Smaller text on mobile
+                                                '&:hover': {
+                                                    background: 'transparent',
+                                                    boxShadow: 'none'
+                                                }
+                                            }}
+                                        >
+                                            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                                                Live Demo
+                                            </Box>
+                                            <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                                Demo
+                                            </Box>
+                                        </Button>
+                                    </Link>
                                 </motion.div>
                             </motion.div>
                         </Box>
@@ -355,35 +356,35 @@ export default function Projects() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Button
-                                variant="contained"
-                                size="large"
-                                startIcon={<IoLogoGithub />}
-                                href="https://github.com/EltonQuekMK"
-                                target="_blank"
-                                sx={{
-                                    background: 'linear-gradient(135deg, #24292e, #1a1e22)',
-                                    color: 'white',
-                                    fontWeight: 600,
-                                    px: 4,
-                                    py: 2,
-                                    borderRadius: 3,
-                                    fontSize: { xs: '0.9rem', md: '1.1rem' }, // Responsive font size
-                                    boxShadow: '0 8px 20px rgba(36, 41, 46, 0.3)',
-                                    '&:hover': {
-                                        background: 'linear-gradient(135deg, #1a1e22, #0d1117)',
-                                        boxShadow: '0 12px 30px rgba(36, 41, 46, 0.4)',
-                                        transform: 'translateY(-2px)'
-                                    }
-                                }}
-                            >
-                                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-                                    View All Projects on GitHub
-                                </Box>
-                                <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
-                                    View Projects
-                                </Box>
-                            </Button>
+                            <Link href="https://github.com/EltonQuekMK" target="_blank" style={{ textDecoration: 'none' }}>
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    startIcon={<IoLogoGithub />}
+                                    sx={{
+                                        background: 'linear-gradient(135deg, #24292e, #1a1e22)',
+                                        color: 'white',
+                                        fontWeight: 600,
+                                        px: 4,
+                                        py: 2,
+                                        borderRadius: 3,
+                                        fontSize: { xs: '0.9rem', md: '1.1rem' }, // Responsive font size
+                                        boxShadow: '0 8px 20px rgba(36, 41, 46, 0.3)',
+                                        '&:hover': {
+                                            background: 'linear-gradient(135deg, #1a1e22, #0d1117)',
+                                            boxShadow: '0 12px 30px rgba(36, 41, 46, 0.4)',
+                                            transform: 'translateY(-2px)'
+                                        }
+                                    }}
+                                >
+                                    <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                                        View All Projects on GitHub
+                                    </Box>
+                                    <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                        View Projects
+                                    </Box>
+                                </Button>
+                            </Link>
                         </motion.div>
                     </Box>
                 </motion.div>
