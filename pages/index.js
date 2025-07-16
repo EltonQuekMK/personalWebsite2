@@ -31,17 +31,22 @@ export default function Home() {
             </Head>
             <GoogleAnalytics />
             <TransitionLine />
-            <Box component="main" sx={{ position: 'relative', zIndex: 2, fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif' }}>
-                {/* <Box sx={{
+            <Box
+                component="main"
+                sx={{
+                    position: 'relative',
+                    zIndex: 2,
+                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif'
+                }}>
+                <Box sx={{
                     position: 'relative',
                     minHeight: '100vh',
-                    background: 'linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f0fdfa 100%)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center'
-                }}> */}
+                }}>
                     <Header />
-                {/* </Box> */}
+                </Box>
                 <PictureSlider />
                 <Skills />
                 <Journey />

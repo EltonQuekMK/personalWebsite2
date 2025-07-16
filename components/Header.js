@@ -5,6 +5,55 @@ import Logo from '../components/Logo.js';
 import MountainRange from '../components/MountainRange.js';
 import styles from '../styles/Home.module.css';
 
+// Internal component for text animation
+function TextAnimation() {
+    const words = [
+        'Software developer',
+        'Problem solver',
+        'Coffee enjoyer',
+        'Part-time gymrat',
+        'Full-time debugger',
+    ];
+    const [index, setIndex] = useState(0);
+    const [rotation, setRotation] = useState(0.5);
+
+    const maxRotate = 7;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => {
+                return prevIndex + 1 < words.length ? prevIndex + 1 : 0;
+            });
+            setRotation((prevRotation) => {
+                return prevRotation > 0 ? -Math.random() * maxRotate : Math.random() * maxRotate;
+            });
+
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <Box sx={{ 
+            height: { xs: '60px', md: '80px' }, 
+            display: 'flex', 
+            alignItems: 'center',
+            justifyContent: { xs: 'center', md: 'flex-start' }
+        }}>
+            <motion.div
+                key={words[index]}
+                className={styles.textAnimation}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1, rotate: rotation, translateX: rotation }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+                {words[index]}
+            </motion.div>
+        </Box>
+    );
+}
+
 const Header = () => {
     const ref = useRef();
     const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -34,6 +83,8 @@ const Header = () => {
 
     return (
         <Box
+            component="header"
+            role="banner"
             ref={ref}
             sx={{
                 position: 'relative',
@@ -111,6 +162,7 @@ const Header = () => {
                     }}>
                         <motion.div variants={itemVariants}>
                             <Typography
+                                component="h1"
                                 variant="h1"
                                 sx={{
                                     fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' },
@@ -133,13 +185,14 @@ const Header = () => {
                         </motion.div>
 
                         <motion.div variants={itemVariants}>
-                            <Box sx={{ mb: 4 }}>
+                            <Box sx={{ mb: 4 }} role="region" aria-label="Dynamic role title">
                                 <TextAnimation />
                             </Box>
                         </motion.div>
 
                         <motion.div variants={itemVariants}>
                             <Typography
+                                component="p"
                                 variant="h6"
                                 sx={{
                                     color: 'text.secondary',
@@ -160,52 +213,7 @@ const Header = () => {
     );
 };
 
+// Add displayName for better debugging and Fast Refresh
+Header.displayName = 'Header';
+
 export default Header;
-
-export function TextAnimation() {
-    const words = [
-        'Software developer',
-        'Problem solver',
-        'Coffee enjoyer',
-        'Part-time gymrat',
-        'Full-time debugger',
-    ];
-    const [index, setIndex] = useState(0);
-    const [rotation, setRotation] = useState(0.5);
-
-    const maxRotate = 7;
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prevIndex) => {
-                return prevIndex + 1 < words.length ? prevIndex + 1 : 0;
-            });
-            setRotation((prevRotation) => {
-                return prevRotation > 0 ? -Math.random() * maxRotate : Math.random() * maxRotate;
-            });
-
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    return (
-        <Box sx={{ 
-            height: { xs: '60px', md: '80px' }, 
-            display: 'flex', 
-            alignItems: 'center',
-            justifyContent: { xs: 'center', md: 'flex-start' }
-        }}>
-            <motion.div
-                key={words[index]}
-                className={styles.textAnimation}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1, rotate: rotation, translateX: rotation }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-                {words[index]}
-            </motion.div>
-        </Box>
-    );
-}
