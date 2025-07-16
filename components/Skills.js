@@ -1,9 +1,10 @@
 import { Box, Container, Grid, LinearProgress, Paper, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaCode, FaDatabase, FaJava, FaNodeJs, FaReact, FaTools } from 'react-icons/fa';
 import { SiDocker, SiGit, SiJavascript, SiNextdotjs, SiRedux, SiTypescript } from 'react-icons/si';
 import styles from '../styles/Home.module.css';
+import { scrollToContact } from '../utils/scrollUtils';
 
 const skillCategories = [
     {
@@ -263,33 +264,6 @@ function SkillCategory({ category, index }) {
                             />
                         ))}
                     </Box>
-
-                    {/* Decorative Background Element */}
-                    <motion.div
-                        animate={{
-                            scale: [1, 1.1, 1],
-                            rotate: [0, 180, 360]
-                        }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        style={{
-                            position: 'absolute',
-                            bottom: 16,
-                            right: 16,
-                            width: '60px',
-                            height: '60px',
-                            background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                            '#f97316, #dc2626'
-                                })`,
-                            borderRadius: '50%',
-                            opacity: 0.1,
-                        }}
-                    />
                 </Paper>
             </motion.div>
         </Grid>
@@ -311,20 +285,6 @@ export default function Skills() {
                 overflow: 'hidden'
             }}
         >
-            {/* Background decorative elements */}
-            <motion.div
-                animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                style={{
-                    position: 'absolute',
-                    top: -100,
-                    right: -100,
-                    width: '400px',
-                    height: '400px',
-                    background: 'radial-gradient(circle, rgba(0,88,221,0.05) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
             <motion.div
                 animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -445,8 +405,8 @@ export default function Skills() {
                             whileTap={{ scale: 0.95 }}
                         >
                             <Box
-                                component="a"
-                                href="#contact"
+                                component="button"
+                                onClick={scrollToContact}
                                 sx={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -456,7 +416,8 @@ export default function Skills() {
                                     color: 'white',
                                     fontWeight: 600,
                                     borderRadius: 25,
-                                    textDecoration: 'none',
+                                    border: 'none',
+                                    cursor: 'pointer',
                                     boxShadow: '0 4px 15px rgba(0,88,221,0.3)',
                                     transition: 'all 0.3s ease',
                                     '&:hover': {
@@ -478,13 +439,6 @@ export default function Skills() {
                     </Box>
                 </motion.div>
             </Container>
-
-            <style jsx>{`
-                @keyframes shimmer {
-                    0% { transform: translateX(-100%); }
-                    100% { transform: translateX(100%); }
-                }
-            `}</style>
         </Box>
     );
 }

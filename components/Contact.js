@@ -1,17 +1,16 @@
-import { Box, Button, Card, CardContent, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaCode, FaHandshake, FaRocket } from 'react-icons/fa';
-import { IoDocument, IoHeart, IoLogoGithub, IoLogoLinkedin, IoMail } from 'react-icons/io5';
+import { IoDocument, IoLogoGithub, IoLogoLinkedin, IoMail } from 'react-icons/io5';
 
 const contactOptions = [
     {
         icon: <IoMail />,
         label: 'Email Me',
         href: 'mailto:quekmkelton@gmail.com',
-        description: 'Let\'s discuss your project',
-        colorMain: '#3b82f6',
-        colorSecondary: '#2563eb'
+        description: 'Let\'s discuss',
+        colorMain: '#ea580c',
+        colorSecondary: '#f59e0b'
     },
     {
         icon: <IoLogoLinkedin />,
@@ -19,15 +18,15 @@ const contactOptions = [
         href: 'https://www.linkedin.com/in/eltonquek/',
         description: 'Connect professionally',
         colorMain: '#2563eb',
-        colorSecondary: '#4f46e5'
+        colorSecondary: '#06b6d4'
     },
     {
         icon: <IoLogoGithub />,
         label: 'GitHub',
         href: 'https://github.com/EltonQuekMK',
         description: 'Check out my code',
-        colorMain: '#374151',
-        colorSecondary: '#1f2937'
+        colorMain: '#8b5cf6',
+        colorSecondary: '#ec4899'
     },
     {
         icon: <IoDocument />,
@@ -35,28 +34,7 @@ const contactOptions = [
         href: '/resume.pdf',
         description: 'View my experience',
         colorMain: '#10b981',
-        colorSecondary: '#059669'
-    }
-];
-
-const features = [
-    {
-        icon: <FaCode />,
-        title: 'Clean Code',
-        description: 'Writing maintainable, scalable solutions',
-        color: '#3b82f6'
-    },
-    {
-        icon: <FaRocket />,
-        title: 'Innovation',
-        description: 'Bringing creative ideas to life',
-        color: '#a855f7'
-    },
-    {
-        icon: <FaHandshake />,
-        title: 'Collaboration',
-        description: 'Working together towards success',
-        color: '#10b981'
+        colorSecondary: '#84cc16'
     }
 ];
 
@@ -150,57 +128,6 @@ export default function Contact() {
                     </Box>
                 </motion.div>
 
-                {/* Features Grid */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <Grid container spacing={4} sx={{ mb: 8 }}>
-                        {features.map((feature, index) => (
-                            <Grid item xs={12} md={4} key={index}>
-                                <motion.div whileHover={{ scale: 1.05, y: -5 }}>
-                                    <Paper
-                                        elevation={3}
-                                        sx={{
-                                            p: 4,
-                                            textAlign: 'center',
-                                            borderRadius: 3,
-                                            background: 'rgba(255,255,255,0.05)',
-                                            backdropFilter: 'blur(10px)',
-                                            border: '1px solid rgba(255,255,255,0.1)',
-                                            color: 'white',
-                                            transition: 'all 0.3s ease',
-                                            '&:hover': {
-                                                background: 'rgba(255,255,255,0.1)',
-                                            }
-                                        }}
-                                    >
-                                        <motion.div
-                                            whileHover={{ scale: 1.2, rotate: 10 }}
-                                            style={{
-                                                marginBottom: '16px',
-                                                display: 'flex',
-                                                justifyContent: 'center'
-                                            }}
-                                        >
-                                            <Box sx={{ fontSize: '3rem', color: feature.color }}>
-                                                {feature.icon}
-                                            </Box>
-                                        </motion.div>
-                                        <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
-                                            {feature.title}
-                                        </Typography>
-                                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                                            {feature.description}
-                                        </Typography>
-                                    </Paper>
-                                </motion.div>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </motion.div>
-
                 {/* Contact Cards */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -214,48 +141,68 @@ export default function Contact() {
                                     whileHover={{ scale: 1.05, y: -5 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <Button
-                                        href={option.href}
-                                        target={option.href.startsWith('http') ? '_blank' : '_self'}
-                                        rel={option.href.startsWith('http') ? 'noopener noreferrer' : ''}
-                                        fullWidth
-                                        sx={{
-                                            p: 3,
-                                            borderRadius: 3,
-                                            background: `linear-gradient(135deg, ${option.colorMain}, ${option.colorSecondary})`,
-                                            color: 'white',
-                                            textTransform: 'none',
-                                            flexDirection: 'column',
-                                            gap: 2,
-                                            minHeight: '120px',
-                                            transition: 'all 0.3s ease',
-                                            '&:hover': {
-                                                background: `linear-gradient(135deg, ${option.colorSecondary}, ${option.colorMain})`,
-                                                boxShadow: `0 8px 25px ${option.colorMain}40`
-                                            }
+                                    <motion.div
+                                        whileHover={{
+                                            background: [
+                                                `linear-gradient(135deg, ${option.colorMain}, ${option.colorSecondary})`,
+                                                `linear-gradient(135deg, ${option.colorSecondary}, ${option.colorMain})`
+                                            ]
+                                        }}
+                                        transition={{
+                                            duration: 0.6,
+                                            ease: "easeInOut"
+                                        }}
+                                        style={{
+                                            borderRadius: '12px',
+                                            background: `linear-gradient(135deg, ${option.colorMain}, ${option.colorSecondary})`
                                         }}
                                     >
+                                        <Button
+                                            href={option.href}
+                                            target={option.href.startsWith('http') ? '_blank' : '_self'}
+                                            rel={option.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                                            fullWidth
+                                            sx={{
+                                                p: 3,
+                                                borderRadius: 3,
+                                                background: 'transparent',
+                                                color: 'white',
+                                                textTransform: 'none',
+                                                flexDirection: 'column',
+                                                gap: 2,
+                                                minHeight: '120px',
+                                                transition: 'box-shadow 0.3s ease',
+                                                '&:hover': {
+                                                    background: 'transparent',
+                                                    boxShadow: `0 8px 25px ${option.colorMain}40`
+                                                }
+                                            }}
+                                        >
                                         <motion.div
                                             whileHover={{ scale: 1.2, rotate: 10 }}
                                             style={{
                                                 padding: '12px',
                                                 background: 'rgba(255,255,255,0.2)',
                                                 borderRadius: '50%',
-                                                fontSize: '1.5rem',
-                                                lineHeight: '1'
+                                                fontSize: '2rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                width: '48px',
+                                                height: '48px'
                                             }}
                                         >
                                             {option.icon}
                                         </motion.div>
                                         <Box>
-                                            <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                            <Typography variant="h6" sx={{ fontWeight: 600, textAlign: 'center' }}>
                                                 {option.label}
                                             </Typography>
                                             <Typography variant="body2" sx={{ opacity: 0.9 }}>
                                                 {option.description}
                                             </Typography>
-                                        </Box>
-                                    </Button>
+                                        </Box>                                        </Button>
+                                    </motion.div>
                                 </motion.div>
                             </Grid>
                         ))}
@@ -271,20 +218,11 @@ export default function Contact() {
                     <Box sx={{ textAlign: 'center' }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 2 }}>
                             <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                                Made with
-                            </Typography>
-                            <motion.div
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{ duration: 1, repeat: Infinity }}
-                            >
-                                <IoHeart style={{ color: '#ef4444' }} />
-                            </motion.div>
-                            <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                                using React & Next.js
+                                Made with React & Next.js
                             </Typography>
                         </Box>
                         <Typography sx={{ color: 'rgba(255,255,255,0.6)' }}>
-                            Check out the source code on GitHub to see how this site was built!
+                            Check out the source code on GitHub to see how this site was built
                         </Typography>
                     </Box>
                 </motion.div>

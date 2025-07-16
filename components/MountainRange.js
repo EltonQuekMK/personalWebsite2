@@ -1,46 +1,72 @@
-import { motion } from 'framer-motion';
-
-const transition = {
-    delay: 1,
-    duration: 2,
-    ease: 'easeInOut',
-};
-
-const circleStroke = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-        pathLength: 1,
-        opacity: 1,
-        transform: 'rotate(135deg)',
-        transition: {
-            delay: 3,
-            pathLength: { type: 'spring', duration: 1.5, bounce: 0 },
-        },
-    },
-};
-
-const circleFill = {
-    hidden: {
-        pathLength: 0,
-        opacity: 0,
-    },
-    visible: {
-        pathLength: 1,
-        transition: {
-            delay: 4,
-        },
-        opacity: 1,
-    },
-};
+import { Box } from '@mui/material';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function MountainRange() {
+    const ref = useRef();
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+    const transition = {
+        delay: 1,
+        duration: 2,
+        ease: 'easeInOut',
+    };
+
+    const circleStroke = {
+        hidden: { pathLength: 0, opacity: 0 },
+        visible: {
+            pathLength: 1,
+            opacity: 1,
+            transition: {
+                delay: 3,
+                pathLength: { type: 'spring', duration: 1.5, bounce: 0 },
+            },
+        },
+    };
+
+    const circleFill = {
+        hidden: { pathLength: 0, opacity: 0 },
+        visible: {
+            pathLength: 1,
+            opacity: 1,
+            transition: {
+                delay: 3,
+                pathLength: { type: 'spring', duration: 1, bounce: 0 },
+            },
+        },
+    };
     return (
-        <>
+        <Box
+            ref={ref}
+            sx={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                zIndex: 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end'
+            }}
+        >
             <motion.svg
                 viewBox='0 0 1404 585'
                 xmlns='http://www.w3.org/2000/svg'
                 initial='hidden'
-                animate='visible'
+                animate={isInView ? 'visible' : 'hidden'}
+                style={{
+                    width: '100%',
+                    height: 'auto',
+                    position: 'absolute',
+                    bottom: 0,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    minWidth: '100%',
+                    maxHeight: '80%'
+                }}
             >
                 <motion.path
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -107,6 +133,6 @@ export default function MountainRange() {
                     </linearGradient>
                 </defs>
             </motion.svg>
-        </>
+        </Box>
     );
 }

@@ -13,14 +13,14 @@ const projects = [
         githubUrl: "https://github.com/EltonQuekMK/personalWebsite2",
         liveUrl: "https://eltonquek.vercel.app",
         achievements: ["100% Lighthouse Performance", "Responsive Design", "SEO Optimized"],
-        colorMain: '#0ea5e9',
-        colorSecondary: '#06b6d4',
-        bgColor: '#f0f9ff'
+        colorMain: '#a855f7',
+        colorSecondary: '#ec4899',
+        bgColor: '#fdf4ff'
     },
     {
         title: "Sanctioned List Search Application",
-        description: "A comprehensive web application that scrapes sanctioned lists from UN websites, stores the data in a searchable database, and provides fuzzy search functionality for compliance checking.",
-        technologies: ["Next.js", "TypeScript", "React", "CSS3", "Web Scraping", "Database"],
+        description: "A comprehensive web application that retrieves sanctioned lists from UN websites, stores the data in a searchable json, and provides fuzzy search functionality for compliance checking.",
+        technologies: ["Next.js", "TypeScript", "React"],
         githubUrl: "https://github.com/EltonQuekMK/SanctionedListWebApp",
         liveUrl: "https://sanctioned-list-webapp.vercel.app/",
         achievements: ["UN Data Integration", "Fuzzy Search", "Real-time Updates"],
@@ -36,9 +36,9 @@ const projects = [
     //     githubUrl: "#",
     //     liveUrl: "#",
     //     achievements: ["Real-time Updates", "Interactive Charts", "Data Export"],
-    //     colorMain: '#a855f7',
-    //     colorSecondary: '#ec4899',
-    //     bgColor: '#fdf4ff'
+    //     colorMain: '#0ea5e9',
+    //     colorSecondary: '#06b6d4',
+    //     bgColor: '#f0f9ff'
     // }
 ];
 
@@ -59,7 +59,7 @@ function ProjectCard({ project, index }) {
                     elevation={4}
                     sx={{
                         height: '100%',
-                        minHeight: '550px',
+                        minHeight: '600px',
                         display: 'flex',
                         flexDirection: 'column',
                         borderRadius: 3,
@@ -97,7 +97,7 @@ function ProjectCard({ project, index }) {
                         >
                             {project.title}
                         </Typography>
-                        
+
                         {/* Description */}
                         <Typography
                             variant="body2"
@@ -226,7 +226,7 @@ function ProjectCard({ project, index }) {
                                     </Box>
                                 </Button>
                             </motion.div>
-                            
+
                             <motion.div
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
@@ -236,8 +236,7 @@ function ProjectCard({ project, index }) {
                                     whileHover={{
                                         background: [
                                             `linear-gradient(135deg, ${project.colorMain}, ${project.colorSecondary})`,
-                                            `linear-gradient(135deg, ${project.colorSecondary}, ${project.colorMain})`,
-                                            `linear-gradient(135deg, ${project.colorMain}, ${project.colorSecondary})`
+                                            `linear-gradient(135deg, ${project.colorSecondary}, ${project.colorMain})`
                                         ]
                                     }}
                                     transition={{
@@ -280,29 +279,6 @@ function ProjectCard({ project, index }) {
                             </motion.div>
                         </Box>
                     </CardActions>
-
-                    {/* Decorative Background Element */}
-                    <motion.div
-                        animate={{ 
-                            scale: [1, 1.1, 1], 
-                            rotate: [0, 180, 360] 
-                        }}
-                        transition={{ 
-                            duration: 20, 
-                            repeat: Infinity, 
-                            ease: "linear" 
-                        }}
-                        style={{
-                            position: 'absolute',
-                            bottom: 16,
-                            right: 16,
-                            width: '60px',
-                            height: '60px',
-                            background: `linear-gradient(135deg, ${project.colorMain}20, ${project.colorSecondary}20)`,
-                            borderRadius: '50%',
-                            zIndex: 0,
-                        }}
-                    />
                 </Card>
             </motion.div>
         </Grid>
@@ -314,59 +290,15 @@ export default function Projects() {
     const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "100px" });
 
     return (
-        <Box 
+        <Box
             ref={ref}
-            sx={{ 
-                py: 10, 
+            sx={{
+                py: 10,
                 background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
                 position: 'relative',
                 overflow: 'hidden'
             }}
         >
-            {/* Animated background elements */}
-            <motion.div
-                animate={{ 
-                    scale: [1, 1.2, 1], 
-                    rotate: [0, 180, 360],
-                    opacity: [0.1, 0.15, 0.1]
-                }}
-                transition={{ 
-                    duration: 25, 
-                    repeat: Infinity, 
-                    ease: "linear" 
-                }}
-                style={{
-                    position: 'absolute',
-                    top: '10%',
-                    left: '10%',
-                    width: '300px',
-                    height: '300px',
-                    background: 'radial-gradient(circle, rgba(0,88,221,0.1) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
-            <motion.div
-                animate={{ 
-                    scale: [1.2, 1, 1.2], 
-                    rotate: [360, 180, 0],
-                    opacity: [0.08, 0.12, 0.08]
-                }}
-                transition={{ 
-                    duration: 20, 
-                    repeat: Infinity, 
-                    ease: "linear" 
-                }}
-                style={{
-                    position: 'absolute',
-                    bottom: '10%',
-                    right: '10%',
-                    width: '400px',
-                    height: '400px',
-                    background: 'radial-gradient(circle, rgba(0,112,243,0.08) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
-
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -392,9 +324,9 @@ export default function Projects() {
                         </Typography>
                         <Typography
                             variant="h6"
-                            sx={{ 
-                                color: 'text.secondary', 
-                                maxWidth: '600px', 
+                            sx={{
+                                color: 'text.secondary',
+                                maxWidth: '600px',
                                 mx: 'auto',
                                 lineHeight: 1.6
                             }}
@@ -404,12 +336,12 @@ export default function Projects() {
                     </Box>
                 </motion.div>
 
-                <Grid container spacing={4} justifyContent={'center'}>
+                <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
                     {projects.map((project, index) => (
                         <ProjectCard key={index} project={project} index={index} />
                     ))}
                 </Grid>
-                
+
                 {/* Call to action */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
