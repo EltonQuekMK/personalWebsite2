@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 import { Container } from '@mui/system';
-import Logo from '../components/Logo.js';
 import { motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import Logo from '../components/Logo.js';
+import styles from '../styles/Home.module.css';
 
 const Header = () => (
     <>
@@ -41,11 +41,11 @@ export function TextAnimation() {
             setRotation((prevRotation) => {
                 return prevRotation > 0 ? -Math.random() * maxRotate : Math.random() * maxRotate;
             });
-            
+
         }, 3000);
 
         return () => clearInterval(interval);
-    });
+    }, []); // Added empty dependency array
 
     return (
         <motion.div

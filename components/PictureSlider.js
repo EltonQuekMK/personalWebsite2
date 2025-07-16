@@ -1,11 +1,8 @@
-import Divider from '@mui/material/Divider';
-import * as React from 'react';
-import styles from '../styles/Home.module.css';
 import { Box, Container } from '@mui/material';
-import { motion, AnimatePresence } from "framer-motion";
-import { useIsSmall } from "../utils/mediaUtils"
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.css';
+import { useIsSmall } from "../utils/mediaUtils";
 
 export default function PictureSlider() {
     const [photo1position, setPhoto1position] = useState("30px")
@@ -26,7 +23,7 @@ export default function PictureSlider() {
                             viewport={{ once: true, amount: 0.9 }}
                             className={styles.image}
                             initial={{ y: -10, rotate: 0, maxWidth: 320, borderRadius: "800px 800px 16px 16px" }}
-                            animate={{ x: photo1position}}
+                            animate={{ x: photo1position }}
                             src={`images/CorporatePic.jpg`}
                             alt=""
                         />
