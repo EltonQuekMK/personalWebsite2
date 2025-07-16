@@ -415,6 +415,7 @@ export default function Skills() {
                                     background: 'linear-gradient(135deg, #0058dd 0%, #0070f3 100%)',
                                     color: 'white',
                                     fontWeight: 600,
+                                    fontSize: '1rem',
                                     borderRadius: 25,
                                     border: 'none',
                                     cursor: 'pointer',
@@ -439,6 +440,7 @@ export default function Skills() {
                     </Box>
                 </motion.div>
             </Container>
+
         </Box>
     );
 }

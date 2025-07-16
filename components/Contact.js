@@ -31,7 +31,7 @@ const contactOptions = [
     {
         icon: <IoDocument />,
         label: 'Resume',
-        href: '/resume.pdf',
+        href: '/EltonQuek_Resume.pdf',
         description: 'View my experience',
         colorMain: '#10b981',
         colorSecondary: '#84cc16'
@@ -159,7 +159,7 @@ export default function Contact() {
                                     >
                                         <Button
                                             href={option.href}
-                                            target={option.href.startsWith('http') ? '_blank' : '_self'}
+                                            target={'_blank'}
                                             rel={option.href.startsWith('http') ? 'noopener noreferrer' : ''}
                                             fullWidth
                                             sx={{

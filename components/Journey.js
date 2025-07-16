@@ -118,7 +118,6 @@ export default function Journey() {
                             key={index}
                             item={item}
                             index={index}
-                            isInView={isInView}
                             isLeft={index % 2 === 0}
                         />
                     ))}
@@ -128,7 +127,10 @@ export default function Journey() {
     );
 }
 
-function TimelineNode({ item, index, isInView, isLeft }) {
+function TimelineNode({ item, index, isLeft }) {
+    const nodeRef = useRef();
+    const isInView = useInView(nodeRef, { once: true, threshold: 0.3, rootMargin: "50px" });
+    
     const gradientColors = {
         'from-yellow-500 to-orange-500': { main: '#f59e0b', light: '#fef3c7' },
         'from-blue-600 to-indigo-600': { main: '#2563eb', light: '#dbeafe' },
@@ -140,6 +142,7 @@ function TimelineNode({ item, index, isInView, isLeft }) {
 
     return (
         <Box
+            ref={nodeRef}
             sx={{
                 position: 'relative',
                 display: 'flex',
@@ -151,7 +154,7 @@ function TimelineNode({ item, index, isInView, isLeft }) {
             <motion.div
                 initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -100 : 100 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 style={{ 
                     width: '100%', 
                     maxWidth: { xs: '100%', md: '45%' },

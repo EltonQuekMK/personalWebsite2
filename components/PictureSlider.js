@@ -20,9 +20,7 @@ export default function PictureSlider() {
             sx={{
                 position: 'relative',
                 height: { xs: "350px", sm: "400px", md: "450px" },
-                width: "100%",
                 background: 'linear-gradient(135deg, #0058dd 0%, #0070f3 100%)',
-                overflow: 'visible',
                 display: 'flex',
                 alignItems: 'center'
             }}
@@ -55,8 +53,7 @@ export default function PictureSlider() {
                             color: 'white',
                             fontWeight: 700,
                             fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.8rem' },
-                            mb: 2,
-                            textShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                            mb: 2
                         }}
                     >
                         Meet Elton
@@ -65,7 +62,6 @@ export default function PictureSlider() {
                         variant="h6"
                         sx={{
                             color: 'rgba(255, 255, 255, 0.9)',
-                            fontWeight: 400,
                             fontSize: { xs: '1rem', md: '1.2rem' },
                             maxWidth: '300px',
                             lineHeight: 1.6
@@ -110,8 +106,6 @@ export default function PictureSlider() {
                             position: 'absolute',
                             bottom: 0,
                             maxWidth: isSmall ? '280px' : '320px',
-                            width: '100%',
-                            height: 'auto',
                             borderRadius: '800px 800px 16px 16px',
                             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                             border: '4px solid rgba(255,255,255,0.2)',
