@@ -27,15 +27,11 @@ export default function PictureSlider() {
         >
             <Container maxWidth="xl" sx={{ position: 'relative', height: '100%' }}>
                 {/* Text content */}
-                <motion.div
-                    // initial={{ opacity: 0, x: -50 }}
-                    // animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                    // transition={{ duration: 0.8, delay: 0.3 }}
-                >
+                <motion.div>
                     <Box
                         sx={{
                             position: 'absolute',
-                            right: { xs: '20px', md: '80px' },
+                            right: { xs: '5px', md: '80px' },
                             top: { xs: '85%', md: '50%' },
                             transform: 'translateY(-50%)',
                             zIndex: 11,
@@ -46,7 +42,6 @@ export default function PictureSlider() {
                             borderRadius: { xs: '16px', md: 0 },
                             border: { xs: '1px solid rgba(255, 255, 255, 0.1)', md: 'none' },
                             boxShadow: { xs: '0 8px 32px rgba(0, 0, 0, 0.2)', md: 'none' },
-                            // Add padding for mobile to prevent text from touching edges
                             p: { xs: 1, md: 0 }
                         }}
                     >
@@ -66,10 +61,10 @@ export default function PictureSlider() {
                             sx={{
                                 color: 'rgba(255, 255, 255, 0.9)',
                                 fontSize: { xs: '1rem', md: '1.2rem' },
-                                maxWidth: '300px',
+                                maxWidth: '330px',
                                 lineHeight: 1.6
                             }}                        >
-                            Passionate about creating digital solutions that make a difference
+                            Full-stack developer who turns coffee into code and ideas into reality
                         </Typography>
                     </Box>
                 </motion.div>
@@ -108,7 +103,7 @@ export default function PictureSlider() {
                         style={{
                             position: 'absolute',
                             bottom: 0,
-                            maxWidth: isSmall ? '280px' : '320px',
+                            maxWidth: '320px',
                             borderRadius: '800px 800px 16px 16px',
                             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                             border: '4px solid rgba(255,255,255,0.2)',

@@ -34,9 +34,9 @@ function TextAnimation() {
     }, []);
 
     return (
-        <Box sx={{ 
-            height: { xs: '60px', md: '80px' }, 
-            display: 'flex', 
+        <Box sx={{
+            height: { xs: '60px', md: '80px' },
+            display: 'flex',
             alignItems: 'center',
             justifyContent: { xs: 'center', md: 'flex-start' }
         }}>
@@ -96,12 +96,12 @@ const Header = () => {
             }}
         >
             {/* MountainRange behind everything */}
-            <Box sx={{ 
-                position: 'absolute', 
-                top: 0, 
-                left: 0, 
-                right: 0, 
-                bottom: 0, 
+            <Box sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
                 zIndex: 1,
                 overflow: 'hidden'
             }}>
@@ -136,79 +136,79 @@ const Header = () => {
                     width: '100%'
                 }}
             >
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                style={{ width: '100%' }}
-            >
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { xs: 'center', md: 'flex-start' },
-                    gap: { xs: 4, md: 8 }
-                }}>
-                    <motion.div
-                        variants={itemVariants}
-                        style={{ order: { xs: 2, md: 1 } }}
-                    >
-                        <Logo />
-                    </motion.div>
-
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
+                    style={{ width: '100%' }}
+                >
                     <Box sx={{
-                        order: { xs: 1, md: 2 },
-                        textAlign: { xs: 'center', md: 'left' },
-                        flex: 1
+                        display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        alignItems: { xs: 'center', md: 'flex-start' },
+                        gap: { xs: 4, md: 8 }
                     }}>
-                        <motion.div variants={itemVariants}>
-                            <Typography
-                                component="h1"
-                                variant="h1"
-                                sx={{
-                                    fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' },
-                                    fontWeight: 700,
-                                    lineHeight: 1.1,
-                                    mb: 3,
-                                    color: 'text.primary',
-                                }}
-                            >
-                                I'm{' '}
-                                <Box
-                                    component="span"
+                        <motion.div
+                            variants={itemVariants}
+                            style={{ order: { xs: 2, md: 1 } }}
+                        >
+                            <Logo />
+                        </motion.div>
+
+                        <Box sx={{
+                            order: { xs: 1, md: 2 },
+                            textAlign: { xs: 'center', md: 'left' },
+                            flex: 1
+                        }}>
+                            <motion.div variants={itemVariants}>
+                                <Typography
+                                    component="h1"
+                                    variant="h1"
                                     sx={{
-                                        color: '#0058dd',
+                                        fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' },
+                                        fontWeight: 700,
+                                        lineHeight: 1.1,
+                                        mb: 3,
+                                        color: 'text.primary',
                                     }}
                                 >
-                                    Elton Quek
+                                    I'm{' '}
+                                    <Box
+                                        component="span"
+                                        sx={{
+                                            color: '#0058dd',
+                                        }}
+                                    >
+                                        Elton Quek
+                                    </Box>
+                                </Typography>
+                            </motion.div>
+
+                            <motion.div variants={itemVariants}>
+                                <Box sx={{ mb: 4 }} role="region" aria-label="Dynamic role title">
+                                    <TextAnimation />
                                 </Box>
-                            </Typography>
-                        </motion.div>
+                            </motion.div>
 
-                        <motion.div variants={itemVariants}>
-                            <Box sx={{ mb: 4 }} role="region" aria-label="Dynamic role title">
-                                <TextAnimation />
-                            </Box>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants}>
-                            <Typography
-                                component="p"
-                                variant="h6"
-                                sx={{
-                                    color: 'text.secondary',
-                                    maxWidth: '600px',
-                                    lineHeight: 1.8,
-                                    fontSize: { xs: '1rem', md: '1.25rem' },
-                                    mb: 4
-                                }}
-                            >
-                                Passionate software developer crafting digital experiences with modern technologies.
-                            </Typography>
-                        </motion.div>
+                            <motion.div variants={itemVariants}>
+                                <Typography
+                                    component="p"
+                                    variant="h6"
+                                    sx={{
+                                        color: 'text.secondary',
+                                        maxWidth: '600px',
+                                        lineHeight: 1.8,
+                                        fontSize: { xs: '1rem', md: '1.25rem' },
+                                        mb: 4
+                                    }}
+                                >
+                                    I develop secure, scalable applications that solve real-world business challenges. My approach: deconstruct complex problems, write clean, maintainable code, and rigorously test to ensure performance, stability, and compliance.
+                                </Typography>
+                            </motion.div>
+                        </Box>
                     </Box>
-                </Box>
-            </motion.div>
-        </Container>
+                </motion.div>
+            </Container>
         </Box>
     );
 };
