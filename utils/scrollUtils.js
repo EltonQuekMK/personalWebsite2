@@ -3,6 +3,61 @@
  */
 
 /**
+ * Internal function to handle smooth scrolling with mobile optimizations
+ * @param {number} targetY - The Y position to scroll to
+ * @param {Object} options - Optional scroll behavior configuration
+ */
+const smoothScrollTo = (targetY, options = {}) => {
+    const { behavior = 'smooth' } = options;
+
+    // Check if we're on mobile (more comprehensive detection)
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768 && window.innerHeight <= 1024);
+    
+    if (isMobile) {
+        // For iOS Safari, we need to disable smooth scrolling sometimes
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        
+        if (isIOS) {
+            // iOS Safari has issues with smooth scrolling, use requestAnimationFrame
+            const startY = window.pageYOffset;
+            const distance = targetY - startY;
+            const duration = 600; // 600ms animation
+            let startTime = null;
+            
+            const animation = (currentTime) => {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                // Easing function
+                const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
+                
+                window.scrollTo(0, startY + distance * ease);
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            };
+            
+            requestAnimationFrame(animation);
+        } else {
+            // Android and other mobile browsers
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+        }
+    } else {
+        // Desktop behavior
+        window.scrollTo({
+            top: targetY,
+            behavior
+        });
+    }
+};
+
+/**
  * Smoothly scrolls to an element with the given ID
  * @param {string} elementId - The ID of the element to scroll to
  * @param {Object} options - Optional scroll behavior configuration
@@ -25,51 +80,19 @@ export const scrollToElement = (elementId, options = {}) => {
         return false;
     }
 
-    // Check if we're on mobile (more comprehensive detection)
+    // Check if we're on mobile for fallback handling
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
                      (window.innerWidth <= 768 && window.innerHeight <= 1024);
     
     if (isMobile) {
-        // Multiple fallback methods for mobile
+        // Mobile fallback with error handling
         try {
-            // Method 1: Try getBoundingClientRect + current scroll position
+            // Calculate target position
             const rect = element.getBoundingClientRect();
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const targetY = rect.top + scrollTop + (offset || -80);
+            const targetY = rect.top + scrollTop + offset;
             
-            // For iOS Safari, we need to disable smooth scrolling sometimes
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            
-            if (isIOS) {
-                // iOS Safari has issues with smooth scrolling, use requestAnimationFrame
-                const startY = window.pageYOffset;
-                const distance = targetY - startY;
-                const duration = 600; // 600ms animation
-                let startTime = null;
-                
-                const animation = (currentTime) => {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    
-                    // Easing function
-                    const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-                    
-                    window.scrollTo(0, startY + distance * ease);
-                    
-                    if (timeElapsed < duration) {
-                        requestAnimationFrame(animation);
-                    }
-                };
-                
-                requestAnimationFrame(animation);
-            } else {
-                // Android and other mobile browsers
-                window.scrollTo({
-                    top: targetY,
-                    behavior: 'smooth'
-                });
-            }
+            smoothScrollTo(targetY, options);
         } catch (error) {
             console.warn('Mobile scroll fallback failed:', error);
             // Ultimate fallback - instant scroll
@@ -82,10 +105,7 @@ export const scrollToElement = (elementId, options = {}) => {
             const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
             const targetPosition = elementPosition + offset;
 
-            window.scrollTo({
-                top: targetPosition,
-                behavior
-            });
+            smoothScrollTo(targetPosition, options);
         } else {
             // Use standard scrollIntoView
             element.scrollIntoView({
@@ -104,12 +124,7 @@ export const scrollToElement = (elementId, options = {}) => {
  * @param {Object} options - Optional scroll behavior configuration
  */
 export const scrollToTop = (options = {}) => {
-    const { behavior = 'smooth' } = options;
-
-    window.scrollTo({
-        top: 0,
-        behavior
-    });
+    smoothScrollTo(0, options);
 };
 
 /**
@@ -118,12 +133,7 @@ export const scrollToTop = (options = {}) => {
  * @param {Object} options - Optional scroll behavior configuration
  */
 export const scrollToPosition = (position, options = {}) => {
-    const { behavior = 'smooth' } = options;
-
-    window.scrollTo({
-        top: position,
-        behavior
-    });
+    smoothScrollTo(position, options);
 };
 
 /**

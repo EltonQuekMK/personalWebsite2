@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Journey from '../components/Journey';
 import PictureSlider from '../components/PictureSlider';
 import Projects from '../components/Projects';
+import ScrollToTop from '../components/ScrollToTop';
 import Skills from '../components/Skills';
 import TransitionLine from '../components/TransitionLine';
 import { GoogleAnalytics } from '../lib/gtag';
@@ -32,21 +33,13 @@ export default function Home() {
             <GoogleAnalytics />
             <TransitionLine />
             <Box component="main" sx={{ position: 'relative', zIndex: 2, fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif' }}>
-                {/* <Box sx={{
-                    position: 'relative',
-                    minHeight: '100vh',
-                    background: 'linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f0fdfa 100%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
-                }}> */}
-                    <Header />
-                {/* </Box> */}
+                <Header />
                 <PictureSlider />
                 <Skills />
                 <Journey />
                 <Projects />
                 <Contact />
+                <ScrollToTop />
             </Box>
         </Box>
     );

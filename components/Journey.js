@@ -13,8 +13,8 @@ const journeyData = [
         title: 'A*STAR',
         subtitle: 'Senior Research Engineer',
         description: 'Developing alongside scientists and researchers, utilizing new technologies to upgrade Singapore towards an innovation-driven economy. Leading full-stack development initiatives and mentoring junior developers.',
-        color: 'from-yellow-500 to-orange-500',
-        bgColor: 'from-yellow-50 to-orange-50'
+        main: '#f59e0b',
+        light: '#fef3c7'
     },
     {
         icon: <BsBank2 className="text-blue-600" />,
@@ -22,8 +22,8 @@ const journeyData = [
         title: 'Credit Suisse',
         subtitle: 'Senior Software Engineer',
         description: 'Working in a multi-national company with global and regional requirements and systems, interacting and liaising with international teams across a complex suite of microservices.',
-        color: 'from-blue-600 to-indigo-600',
-        bgColor: 'from-blue-50 to-indigo-50'
+        main: '#2563eb',
+        light: '#dbeafe'
     },
     {
         icon: <AiFillCode className="text-green-600" />,
@@ -31,8 +31,8 @@ const journeyData = [
         title: 'CrimsonLogic',
         subtitle: 'Software Developer',
         description: 'My first foray into professional software development. Participated in the graduate rotation program, gaining hands-on experience across various projects while learning the ins and outs of coding and mentoring fresh graduates.',
-        color: 'from-green-600 to-emerald-600',
-        bgColor: 'from-green-50 to-emerald-50'
+        main: '#059669',
+        light: '#d1fae5'
     },
     {
         icon: <FaGraduationCap className="text-purple-600" />,
@@ -40,14 +40,14 @@ const journeyData = [
         title: 'Nanyang Technological University',
         subtitle: 'Double Degree Graduate',
         description: 'Graduated with a Double Degree in Computer Science and Business, building a strong foundation in both technical and business domains.',
-        color: 'from-purple-600 to-pink-600',
-        bgColor: 'from-purple-50 to-pink-50'
+        main: '#9333ea',
+        light: '#f3e8ff'
     }
 ];
 
 export default function Journey() {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "100px" });
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
     return (
         <Box
@@ -131,7 +131,6 @@ export default function Journey() {
                         <TimelineNode
                             key={index}
                             item={item}
-                            index={index}
                             isLeft={index % 2 === 0}
                         />
                     ))}
@@ -141,18 +140,11 @@ export default function Journey() {
     );
 }
 
-function TimelineNode({ item, index, isLeft }) {
+function TimelineNode({ item, isLeft }) {
     const nodeRef = useRef();
-    const isInView = useInView(nodeRef, { once: true, threshold: 0.3, rootMargin: "50px" });
+    const isInView = useInView(nodeRef, { once: true, amount: 0.5 });
 
-    const gradientColors = {
-        'from-yellow-500 to-orange-500': { main: '#f59e0b', light: '#fef3c7' },
-        'from-blue-600 to-indigo-600': { main: '#2563eb', light: '#dbeafe' },
-        'from-green-600 to-emerald-600': { main: '#059669', light: '#d1fae5' },
-        'from-purple-600 to-pink-600': { main: '#9333ea', light: '#f3e8ff' }
-    };
-
-    const colors = gradientColors[item.color] || { main: '#0058dd', light: '#e3f2fd' };
+    const colors = { main: item.main, light: item.light };
 
     return (
         <Box
@@ -168,7 +160,7 @@ function TimelineNode({ item, index, isLeft }) {
             <motion.div
                 initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -100 : 100 }}
-                transition={'all 0.3s ease'}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 style={{
                     width: '100%',
                     maxWidth: { xs: '100%', md: '45%' },
@@ -199,7 +191,7 @@ function TimelineNode({ item, index, isLeft }) {
                                 left: 0,
                                 right: 0,
                                 height: '4px',
-                                background: `linear-gradient(90deg, ${colors.main}, ${colors.main}dd)`,
+                                background: colors.main,
                             }
                         }}
                     >
@@ -212,7 +204,7 @@ function TimelineNode({ item, index, isLeft }) {
                                     px: 2,
                                     py: 1,
                                     borderRadius: 25,
-                                    background: `linear-gradient(135deg, ${colors.main}, ${colors.main}dd)`,
+                                    background: colors.main,
                                     color: 'white',
                                     fontSize: '0.875rem',
                                     fontWeight: 600,
@@ -279,7 +271,7 @@ function TimelineNode({ item, index, isLeft }) {
                         sx={{
                             width: 64,
                             height: 64,
-                            background: `linear-gradient(135deg, ${colors.main}, ${colors.main}dd)`,
+                            background: colors.main,
                             borderRadius: '50%',
                             display: 'flex',
                             alignItems: 'center',

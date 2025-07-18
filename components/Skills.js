@@ -12,6 +12,8 @@ const skillCategories = [
         icon: <FaReact style={{ fontSize: '2rem', color: '#3b82f6' }} />,
         color: "from-blue-500 to-cyan-500",
         bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
+        gradient: '#0ea5e9, #06b6d4',
+        backgroundGradient: '#f0f9ff, #e0f2fe',
         skills: [
             { name: "ReactJS", icon: <FaReact style={{ color: '#3b82f6' }} /> },
             { name: "TypeScript", icon: <SiTypescript style={{ color: '#2563eb' }} /> },
@@ -26,6 +28,8 @@ const skillCategories = [
         icon: <FaNodeJs style={{ fontSize: '2rem', color: '#10b981' }} />,
         color: "from-green-500 to-emerald-500",
         bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
+        gradient: '#10b981, #059669',
+        backgroundGradient: '#f0fdf4, #dcfce7',
         skills: [
             { name: "NodeJS", icon: <FaNodeJs style={{ color: '#10b981' }} /> },
             { name: "Java", icon: <FaJava style={{ color: '#dc2626' }} /> },
@@ -40,6 +44,8 @@ const skillCategories = [
         icon: <FaDatabase style={{ fontSize: '2rem', color: '#a855f7' }} />,
         color: "from-purple-500 to-pink-500",
         bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
+        gradient: '#a855f7, #ec4899',
+        backgroundGradient: '#fdf4ff, #fae8ff',
         skills: [
             { name: "MySQL", icon: <SiMysql style={{ color: '#2563eb' }} /> },
             { name: "MongoDB", icon: <SiMongodb style={{ color: '#059669' }} /> },
@@ -54,6 +60,8 @@ const skillCategories = [
         icon: <FaTools style={{ fontSize: '2rem', color: '#f97316' }} />,
         color: "from-orange-500 to-red-500",
         bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
+        gradient: '#f97316, #dc2626',
+        backgroundGradient: '#fff7ed, #fed7aa',
         skills: [
             { name: "JUnit", icon: <SiJunit5 style={{ color: '#059669' }} /> },
             { name: "Test Driven Development", icon: <FaCode style={{ color: '#2563eb' }} /> },
@@ -69,7 +77,7 @@ function SkillBar({ skill, index, isInView }) {
         <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.5, delay: index * 0.4 }}
         >
             <Box sx={{
                 mb: 2,
@@ -102,7 +110,7 @@ function SkillBar({ skill, index, isInView }) {
 
 function SkillCategory({ category, index }) {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     return (
         <Grid item xs={12} sm={6} lg={3} sx={{ display: 'flex', marginBottom: 5 }}>
@@ -121,11 +129,7 @@ function SkillCategory({ category, index }) {
                         flexGrow: 1,
                         p: 3,
                         borderRadius: 3,
-                        background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#f0f9ff, #e0f2fe' :
-                            category.category === "Backend & Frameworks" ? '#f0fdf4, #dcfce7' :
-                                category.category === "Database & DevOps" ? '#fdf4ff, #fae8ff' :
-                                    '#fff7ed, #fed7aa'
-                            })`,
+                        background: `linear-gradient(135deg, ${category.backgroundGradient})`,
                         border: '1px solid rgba(255,255,255,0.2)',
                         position: 'relative',
                         overflow: 'visible', // Allow floating elements to show
@@ -139,11 +143,7 @@ function SkillCategory({ category, index }) {
                             left: 0,
                             right: 0,
                             height: '4px',
-                            background: `linear-gradient(90deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                    category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                        '#f97316, #dc2626'
-                                })`,
+                            background: `linear-gradient(90deg, ${category.gradient})`,
                         }
                     }}
                 >
@@ -172,11 +172,7 @@ function SkillCategory({ category, index }) {
                             component="h3"
                             fontWeight={700}
                             sx={{
-                                background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                            '#f97316, #dc2626'
-                                    })`,
+                                background: `linear-gradient(135deg, ${category.gradient})`,
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 color: 'transparent',
@@ -191,11 +187,7 @@ function SkillCategory({ category, index }) {
                             transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
                             style={{
                                 height: '3px',
-                                background: `linear-gradient(90deg, ${category.category === "Frontend Development" ? '#0ea5e9, #06b6d4' :
-                                    category.category === "Backend & Frameworks" ? '#10b981, #059669' :
-                                        category.category === "Database & DevOps" ? '#a855f7, #ec4899' :
-                                            '#f97316, #dc2626'
-                                    })`,
+                                background: `linear-gradient(90deg, ${category.gradient})`,
                                 borderRadius: '2px'
                             }}
                         />

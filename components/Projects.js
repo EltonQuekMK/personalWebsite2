@@ -45,7 +45,7 @@ const projects = [
 
 function ProjectCard({ project, index }) {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     return (
         <Grid item xs={12} md={6} lg={4} sx={{ display: 'flex', flexGrow: 1 }}>
@@ -286,7 +286,7 @@ function ProjectCard({ project, index }) {
 
 export default function Projects() {
     const ref = useRef();
-    const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "100px" });
+    const isInView = useInView(ref, { once: true, amount: 0.1});
 
     return (
         <Box
