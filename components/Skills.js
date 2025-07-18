@@ -1,6 +1,6 @@
-import { Box, Container, Grid, LinearProgress, Paper, Typography } from '@mui/material';
+import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { FaCode, FaDatabase, FaJava, FaNodeJs, FaReact, FaTools } from 'react-icons/fa';
 import { SiAzuredevops, SiCsharp, SiDocker, SiDotnet, SiGit, SiGitlab, SiHtml5, SiJavascript, SiJunit5, SiMongodb, SiMysql, SiNextdotjs, SiOracle, SiRedux, SiSonarqube, SiSpring, SiTypescript, SiUnity } from 'react-icons/si';
 import styles from '../styles/Home.module.css';
@@ -13,12 +13,12 @@ const skillCategories = [
         color: "from-blue-500 to-cyan-500",
         bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
         skills: [
-            { name: "ReactJS", level: 95, icon: <FaReact style={{ color: '#3b82f6' }} /> },
-            { name: "TypeScript", level: 95, icon: <SiTypescript style={{ color: '#2563eb' }} /> },
-            { name: "JavaScript", level: 95, icon: <SiJavascript style={{ color: '#eab308' }} /> },
-            { name: "NextJS", level: 90, icon: <SiNextdotjs style={{ color: '#000000' }} /> },
-            { name: "Redux", level: 80, icon: <SiRedux style={{ color: '#9333ea' }} /> },
-            { name: "HTML5/CSS3", level: 90, icon: <SiHtml5 style={{ color: '#f97316' }} /> }
+            { name: "ReactJS", icon: <FaReact style={{ color: '#3b82f6' }} /> },
+            { name: "TypeScript", icon: <SiTypescript style={{ color: '#2563eb' }} /> },
+            { name: "JavaScript", icon: <SiJavascript style={{ color: '#eab308' }} /> },
+            { name: "NextJS", icon: <SiNextdotjs style={{ color: '#000000' }} /> },
+            { name: "Redux", icon: <SiRedux style={{ color: '#9333ea' }} /> },
+            { name: "HTML5/CSS3", icon: <SiHtml5 style={{ color: '#f97316' }} /> }
         ]
     },
     {
@@ -27,12 +27,12 @@ const skillCategories = [
         color: "from-green-500 to-emerald-500",
         bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
         skills: [
-            { name: "NodeJS", level: 85, icon: <FaNodeJs style={{ color: '#10b981' }} /> },
-            { name: "Java", level: 85, icon: <FaJava style={{ color: '#dc2626' }} /> },
-            { name: "C#", level: 85, icon: <SiCsharp style={{ color: '#9333ea' }} /> },
-            { name: ".NET Core", level: 80, icon: <SiDotnet style={{ color: '#3b82f6' }} /> },
-            { name: "Spring", level: 80, icon: <SiSpring style={{ color: '#059669' }} /> },
-            { name: "WebSockets", level: 85, icon: <FaCode style={{ color: '#6366f1' }} /> }
+            { name: "NodeJS", icon: <FaNodeJs style={{ color: '#10b981' }} /> },
+            { name: "Java", icon: <FaJava style={{ color: '#dc2626' }} /> },
+            { name: "C#", icon: <SiCsharp style={{ color: '#9333ea' }} /> },
+            { name: ".NET Core", icon: <SiDotnet style={{ color: '#3b82f6' }} /> },
+            { name: "Spring", icon: <SiSpring style={{ color: '#059669' }} /> },
+            { name: "WebSockets", icon: <FaCode style={{ color: '#6366f1' }} /> }
         ]
     },
     {
@@ -41,12 +41,12 @@ const skillCategories = [
         color: "from-purple-500 to-pink-500",
         bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
         skills: [
-            { name: "MySQL", level: 85, icon: <SiMysql style={{ color: '#2563eb' }} /> },
-            { name: "MongoDB", level: 80, icon: <SiMongodb style={{ color: '#059669' }} /> },
-            { name: "Oracle SQL/MSSQL", level: 80, icon: <SiOracle style={{ color: '#dc2626' }} /> },
-            { name: "Docker", level: 75, icon: <SiDocker style={{ color: '#3b82f6' }} /> },
-            { name: "GitLab CI/CD", level: 90, icon: <SiGitlab style={{ color: '#ea580c' }} /> },
-            { name: "Azure DevOps", level: 80, icon: <SiAzuredevops style={{ color: '#2563eb' }} /> }
+            { name: "MySQL", icon: <SiMysql style={{ color: '#2563eb' }} /> },
+            { name: "MongoDB", icon: <SiMongodb style={{ color: '#059669' }} /> },
+            { name: "Oracle SQL/MSSQL", icon: <SiOracle style={{ color: '#dc2626' }} /> },
+            { name: "Docker", icon: <SiDocker style={{ color: '#3b82f6' }} /> },
+            { name: "GitLab CI/CD", icon: <SiGitlab style={{ color: '#ea580c' }} /> },
+            { name: "Azure DevOps", icon: <SiAzuredevops style={{ color: '#2563eb' }} /> }
         ]
     },
     {
@@ -55,100 +55,48 @@ const skillCategories = [
         color: "from-orange-500 to-red-500",
         bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
         skills: [
-            { name: "JUnit", level: 85, icon: <SiJunit5 style={{ color: '#059669' }} /> },
-            { name: "Test Driven Development", level: 85, icon: <FaCode style={{ color: '#2563eb' }} /> },
-            { name: "Git", level: 95, icon: <SiGit style={{ color: '#ea580c' }} /> },
-            { name: "SonarQube", level: 80, icon: <SiSonarqube style={{ color: '#3b82f6' }} /> },
-            { name: "Unity", level: 75, icon: <SiUnity style={{ color: '#a855f7' }} /> }
+            { name: "JUnit", icon: <SiJunit5 style={{ color: '#059669' }} /> },
+            { name: "Test Driven Development", icon: <FaCode style={{ color: '#2563eb' }} /> },
+            { name: "Git", icon: <SiGit style={{ color: '#ea580c' }} /> },
+            { name: "SonarQube", icon: <SiSonarqube style={{ color: '#3b82f6' }} /> },
+            { name: "Unity", icon: <SiUnity style={{ color: '#a855f7' }} /> }
         ]
     }
 ];
 
 function SkillBar({ skill, index, isInView }) {
-    const [animatedValue, setAnimatedValue] = useState(0);
-    const [progressValue, setProgressValue] = useState(0);
-
-    useEffect(() => {
-        if (isInView) {
-            // Animate the progress bar value
-            const progressTimer = setTimeout(() => {
-                setProgressValue(skill.level);
-            }, index * 100);
-
-            // Animate the percentage text
-            const textTimer = setTimeout(() => {
-                setAnimatedValue(skill.level);
-            }, index * 100 + 200);
-
-            return () => {
-                clearTimeout(progressTimer);
-                clearTimeout(textTimer);
-            };
-        } else {
-            setAnimatedValue(0);
-            setProgressValue(0);
-        }
-    }, [isInView, skill.level, index]);
-
     return (
-        <Box sx={{ mb: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+            <Box sx={{
+                mb: 2,
+                p: 2,
+                borderRadius: 2,
+                background: 'rgba(255, 255, 255, 0.7)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.1)'
+                }
+            }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <motion.div
                         whileHover={{ scale: 1.2, rotate: 10 }}
                         transition={{ duration: 0.2 }}
                     >
                         {skill.icon}
                     </motion.div>
-                    <Typography variant="body2" fontWeight={600}>
+                    <Typography variant="body1" fontWeight={600}>
                         {skill.name}
                     </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-                    >
-                        <Typography variant="body2" fontWeight={600} sx={{ ml: 1 }}>
-                            {Math.round(animatedValue)}%
-                        </Typography>
-                    </motion.div>
-                </Box>
             </Box>
-            <motion.div
-                initial={{ width: 0 }}
-                animate={isInView ? { width: '100%' } : { width: 0 }}
-                transition={{ duration: 1.2, delay: index * 0.1 }}
-            >
-                <LinearProgress
-                    variant="determinate"
-                    value={progressValue}
-                    sx={{
-                        height: 8,
-                        borderRadius: 4,
-                        backgroundColor: '#e0e0e0',
-                        transition: 'all 1.2s ease-in-out',
-                        '& .MuiLinearProgress-bar': {
-                            background: 'linear-gradient(90deg,#d3d3d3,#595959)',
-                            borderRadius: 4,
-                            overflow: 'hidden',
-                            transition: 'transform 1.2s ease-in-out',
-                            '&::after': {
-                                content: '""',
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                bottom: 0,
-                                right: 0,
-                                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-                                animation: 'shimmer 2s infinite linear',
-                            }
-                        }
-                    }}
-                />
-            </motion.div>
-        </Box>
+        </motion.div>
     );
 }
 
@@ -157,10 +105,10 @@ function SkillCategory({ category, index }) {
     const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
 
     return (
-        <Grid item xs={12} sm={6} lg={3}>
+        <Grid item xs={12} sm={6} lg={3} sx={{ display: 'flex', flexGrow: 1 }}>
             <motion.div
                 ref={ref}
-                initial={{ opacity: 0, y: 80, rotateX: -15 }}
+                initial={{ opacity: 0, y: 80, rotateX: -15, display: 'flex', flexGrow: 1, }}
                 animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 80, rotateX: -15 }}
                 transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
             >
@@ -168,7 +116,9 @@ function SkillCategory({ category, index }) {
                     elevation={4}
                     sx={{
                         height: '100%',
-                        minHeight: '520px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flexGrow: 1,
                         p: 3,
                         borderRadius: 3,
                         background: `linear-gradient(135deg, ${category.category === "Frontend Development" ? '#f0f9ff, #e0f2fe' :
@@ -252,7 +202,7 @@ function SkillCategory({ category, index }) {
                     </Box>
 
                     {/* Skills List */}
-                    <Box>
+                    <Box sx={{ flex: 1 }}>
                         {category.skills.map((skill, skillIndex) => (
                             <SkillBar
                                 key={skill.name}
@@ -305,31 +255,6 @@ export default function Skills() {
                     transition={{ duration: 0.8 }}
                 >
                     <Box sx={{ textAlign: 'center', mb: 8 }}>
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            <Box
-                                sx={{
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    px: 3,
-                                    py: 1,
-                                    borderRadius: 25,
-                                    background: 'rgba(0,88,221,0.1)',
-                                    color: '#0058dd',
-                                    fontWeight: 600,
-                                    fontSize: '0.875rem',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    mb: 3,
-                                    gap: 1
-                                }}
-                            >
-                                <FaCode />
-                                Technical Expertise
-                            </Box>
-                        </motion.div>
-
                         <Typography
                             variant="h2"
                             component="h2"
@@ -337,14 +262,27 @@ export default function Skills() {
                             sx={{
                                 fontWeight: 700,
                                 mb: 3,
-                                background: 'linear-gradient(135deg, #0058dd 0%, #0070f3 100%)',
-                                backgroundClip: 'text',
-                                WebkitBackgroundClip: 'text',
-                                color: 'transparent',
                                 fontSize: { xs: '2.5rem', md: '3.5rem' }
                             }}
                         >
-                            My Skills
+                            <Box
+                                sx={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    px: 4,
+                                    py: 2,
+                                    borderRadius: 25,
+                                    background: 'rgba(0,88,221,0.3)',
+                                    color: '#0058dd',
+                                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                    gap: 2,
+                                    boxShadow: '0 8px 32px rgba(0, 88, 221, 0.3)',
+                                    border: '2px solid rgba(255, 255, 255, 0.1)'
+                                }}
+                            >
+                                <FaCode />
+                                My Skills
+                            </Box>
                         </Typography>
 
                         <Typography
@@ -404,7 +342,12 @@ export default function Skills() {
                         >
                             <Box
                                 component="button"
-                                onClick={scrollToContact}
+                                onClick={() => {
+                                    // Add small delay for mobile compatibility
+                                    setTimeout(() => {
+                                        scrollToContact();
+                                    }, 100);
+                                }}
                                 sx={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
@@ -438,12 +381,6 @@ export default function Skills() {
                     </Box>
                 </motion.div>
             </Container>
-            <style jsx>{`
-                @keyframes shimmer {
-                    0% { transform: translateX(-100%); }
-                    100% { transform: translateX(100%); }
-                }
-            `}</style>
         </Box>
     );
 }

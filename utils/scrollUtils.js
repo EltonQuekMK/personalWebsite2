@@ -25,22 +25,37 @@ export const scrollToElement = (elementId, options = {}) => {
         return false;
     }
 
-    if (offset !== 0) {
-        // Calculate position with offset
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const targetPosition = elementPosition + offset;
-
+    // Check if we're on mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Use a more reliable method for mobile
+        const elementTop = element.offsetTop;
+        const mobileOffset = offset !== 0 ? offset : -80; // Account for fixed headers on mobile
+        
         window.scrollTo({
-            top: targetPosition,
+            top: elementTop + mobileOffset,
             behavior
         });
     } else {
-        // Use standard scrollIntoView
-        element.scrollIntoView({
-            behavior,
-            block,
-            inline
-        });
+        // Desktop behavior
+        if (offset !== 0) {
+            // Calculate position with offset
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const targetPosition = elementPosition + offset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior
+            });
+        } else {
+            // Use standard scrollIntoView
+            element.scrollIntoView({
+                behavior,
+                block,
+                inline
+            });
+        }
     }
 
     return true;

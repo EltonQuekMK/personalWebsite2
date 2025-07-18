@@ -15,9 +15,9 @@ function TextAnimation() {
         'Full-time debugger',
     ];
     const [index, setIndex] = useState(0);
-    const [rotation, setRotation] = useState(0.5);
+    const [rotation, setRotation] = useState(1);
 
-    const maxRotate = 7;
+    const maxRotate = 4;
 
     useEffect(() => {
         const interval = setInterval(() => {

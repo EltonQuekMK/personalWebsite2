@@ -55,34 +55,6 @@ export default function Contact() {
                 overflow: 'hidden'
             }}
         >
-            {/* Background Effects */}
-            <motion.div
-                animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                style={{
-                    position: 'absolute',
-                    top: '25%',
-                    left: '25%',
-                    width: '200px',
-                    height: '200px',
-                    background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
-            <motion.div
-                animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                style={{
-                    position: 'absolute',
-                    bottom: '25%',
-                    right: '25%',
-                    width: '300px',
-                    height: '300px',
-                    background: 'radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
-
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}

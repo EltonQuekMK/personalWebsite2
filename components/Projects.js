@@ -48,7 +48,7 @@ function ProjectCard({ project, index }) {
     const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
 
     return (
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={6} lg={4} sx={{ display: 'flex', flexGrow: 1 }}>
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 60, scale: 0.9 }}
@@ -59,7 +59,6 @@ function ProjectCard({ project, index }) {
                     elevation={4}
                     sx={{
                         height: '100%',
-                        minHeight: '600px',
                         display: 'flex',
                         flexDirection: 'column',
                         borderRadius: 3,
@@ -313,14 +312,27 @@ export default function Projects() {
                             sx={{
                                 fontWeight: 700,
                                 mb: 3,
-                                background: 'linear-gradient(135deg, #0058dd 0%, #0070f3 100%)',
-                                backgroundClip: 'text',
-                                WebkitBackgroundClip: 'text',
-                                color: 'transparent',
                                 fontSize: { xs: '2.5rem', md: '3.5rem' }
                             }}
                         >
-                            Featured Projects
+                            <Box
+                                sx={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    px: 4,
+                                    py: 2,
+                                    borderRadius: 25,
+                                    background: 'rgba(0,88,221,0.3)',
+                                    color: '#0058dd',
+                                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                    gap: 2,
+                                    boxShadow: '0 8px 32px rgba(0, 88, 221, 0.3)',
+                                    border: '2px solid rgba(255, 255, 255, 0.1)'
+                                }}
+                            >
+                                <FaAward />
+                                Featured Projects
+                            </Box>
                         </Typography>
                         <Typography
                             variant="h6"
