@@ -25,18 +25,56 @@ export const scrollToElement = (elementId, options = {}) => {
         return false;
     }
 
-    // Check if we're on mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // Check if we're on mobile (more comprehensive detection)
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     (window.innerWidth <= 768 && window.innerHeight <= 1024);
     
     if (isMobile) {
-        // Use a more reliable method for mobile
-        const elementTop = element.offsetTop;
-        const mobileOffset = offset !== 0 ? offset : -80; // Account for fixed headers on mobile
-        
-        window.scrollTo({
-            top: elementTop + mobileOffset,
-            behavior
-        });
+        // Multiple fallback methods for mobile
+        try {
+            // Method 1: Try getBoundingClientRect + current scroll position
+            const rect = element.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetY = rect.top + scrollTop + (offset || -80);
+            
+            // For iOS Safari, we need to disable smooth scrolling sometimes
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            
+            if (isIOS) {
+                // iOS Safari has issues with smooth scrolling, use requestAnimationFrame
+                const startY = window.pageYOffset;
+                const distance = targetY - startY;
+                const duration = 600; // 600ms animation
+                let startTime = null;
+                
+                const animation = (currentTime) => {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Easing function
+                    const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
+                    
+                    window.scrollTo(0, startY + distance * ease);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                };
+                
+                requestAnimationFrame(animation);
+            } else {
+                // Android and other mobile browsers
+                window.scrollTo({
+                    top: targetY,
+                    behavior: 'smooth'
+                });
+            }
+        } catch (error) {
+            console.warn('Mobile scroll fallback failed:', error);
+            // Ultimate fallback - instant scroll
+            element.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
     } else {
         // Desktop behavior
         if (offset !== 0) {

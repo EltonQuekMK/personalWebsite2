@@ -105,7 +105,7 @@ function SkillCategory({ category, index }) {
     const isInView = useInView(ref, { once: true, threshold: 0.3, rootMargin: "50px" });
 
     return (
-        <Grid item xs={12} sm={6} lg={3} sx={{ display: 'flex', flexGrow: 1 }}>
+        <Grid item xs={12} sm={6} lg={3} sx={{ display: 'flex', marginBottom: 5 }}>
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 80, rotateX: -15, display: 'flex', flexGrow: 1, }}
@@ -233,19 +233,6 @@ export default function Skills() {
                 overflow: 'hidden'
             }}
         >
-            <motion.div
-                animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                style={{
-                    position: 'absolute',
-                    bottom: -100,
-                    left: -100,
-                    width: '400px',
-                    height: '400px',
-                    background: 'radial-gradient(circle, rgba(0,112,243,0.05) 0%, transparent 70%)',
-                    borderRadius: '50%'
-                }}
-            />
 
             <Container maxWidth="lg">
                 {/* Section Header */}
@@ -342,12 +329,7 @@ export default function Skills() {
                         >
                             <Box
                                 component="button"
-                                onClick={() => {
-                                    // Add small delay for mobile compatibility
-                                    setTimeout(() => {
-                                        scrollToContact();
-                                    }, 100);
-                                }}
+                                onClick={scrollToContact}
                                 sx={{
                                     display: 'inline-flex',
                                     alignItems: 'center',
