@@ -160,7 +160,7 @@ function TimelineNode({ item, isLeft }) {
             <motion.div
                 initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -100 : 100 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 style={{
                     width: '100%',
                     maxWidth: { xs: '100%', md: '45%' },
@@ -266,7 +266,12 @@ function TimelineNode({ item, isLeft }) {
                     display: { xs: 'none', md: 'block' }
                 }}
             >
-                <motion.div whileHover={{ scale: 1.2, rotate: 10 }}>
+                <motion.div
+                    initial={{ opacity: 0, x: isLeft ? 100 : -100 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? 100 : -100 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                >
                     <Box
                         sx={{
                             width: 64,

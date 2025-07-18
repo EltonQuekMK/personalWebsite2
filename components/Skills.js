@@ -2,6 +2,7 @@ import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaCode, FaDatabase, FaJava, FaNodeJs, FaReact, FaTools } from 'react-icons/fa';
+import { FaWandMagicSparkles } from "react-icons/fa6";
 import { SiAzuredevops, SiCsharp, SiDocker, SiDotnet, SiGit, SiGitlab, SiHtml5, SiJavascript, SiJunit5, SiMongodb, SiMysql, SiNextdotjs, SiOracle, SiRedux, SiSonarqube, SiSpring, SiTypescript, SiUnity } from 'react-icons/si';
 import styles from '../styles/Home.module.css';
 import { scrollToContact } from '../utils/scrollUtils';
@@ -259,7 +260,7 @@ export default function Skills() {
                                     border: '2px solid rgba(255, 255, 255, 0.1)'
                                 }}
                             >
-                                <FaCode />
+                                <FaWandMagicSparkles />
                                 My Skills
                             </Box>
                         </Typography>
