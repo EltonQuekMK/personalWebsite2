@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaCode, FaDatabase, FaJava, FaNodeJs, FaReact, FaTools } from 'react-icons/fa';
 import { FaWandMagicSparkles } from "react-icons/fa6";
-import { SiAzuredevops, SiCsharp, SiDocker, SiDotnet, SiGit, SiGitlab, SiHtml5, SiJavascript, SiJunit5, SiMongodb, SiMysql, SiNextdotjs, SiOracle, SiRedux, SiSonarqube, SiSpring, SiTypescript, SiUnity } from 'react-icons/si';
+import { SiAzuredevops, SiCsharp, SiDocker, SiDotnet, SiJira, SiGit, SiGitlab, SiHtml5, SiJavascript, SiJunit5, SiMongodb, SiMysql, SiNextdotjs, SiOracle, SiRedux, SiSonarqube, SiSpring, SiTypescript, SiUnity } from 'react-icons/si';
 import styles from '../styles/Home.module.css';
 import { scrollToContact } from '../utils/scrollUtils';
 
@@ -68,7 +68,8 @@ const skillCategories = [
             { name: "Test Driven Development", icon: <FaCode style={{ color: '#2563eb' }} /> },
             { name: "Git", icon: <SiGit style={{ color: '#ea580c' }} /> },
             { name: "SonarQube", icon: <SiSonarqube style={{ color: '#3b82f6' }} /> },
-            { name: "Unity", icon: <SiUnity style={{ color: '#a855f7' }} /> }
+            { name: "Unity", icon: <SiUnity style={{ color: '#a855f7' }} /> },
+            { name: "Jira", icon: <SiJira style={{ color: '#2563eb' }} /> }
         ]
     }
 ];
