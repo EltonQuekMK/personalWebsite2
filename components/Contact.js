@@ -32,7 +32,7 @@ const contactOptions = [
     {
         icon: <IoDocument />,
         label: 'Resume',
-        href: '/EltonQuek_Resume.pdf',
+        href: 'https://drive.google.com/file/d/17jSf3CB5j1Y_pkIXG3vP8YdePsv5Vb7n/view?usp=drive_link',
         description: 'View my experience',
         colorMain: '#10b981',
         colorSecondary: '#84cc16'

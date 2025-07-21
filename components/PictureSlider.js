@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useIsSmall } from "../utils/mediaUtils";
 
@@ -71,7 +72,7 @@ export default function PictureSlider() {
 
                 {/* Profile image */}
                 <AnimatePresence>
-                    <motion.img
+                    <motion.div
                         initial={{
                             y: 50,
                             rotate: 0,
@@ -107,11 +108,23 @@ export default function PictureSlider() {
                             borderRadius: '800px 800px 16px 16px',
                             boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                             border: '4px solid rgba(255,255,255,0.2)',
-                            zIndex: 10
+                            zIndex: 10,
+                            overflow: 'hidden'
                         }}
-                        src={`images/CorporatePic.jpg`}
-                        alt="Elton Quek - Software Developer"
-                    />
+                    >
+                        <Image
+                            src="/images/CorporatePic.jpg"
+                            alt="Elton Quek - Software Developer"
+                            width={320}
+                            height={400}
+                            priority
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                            }}
+                        />
+                    </motion.div>
                 </AnimatePresence>
             </Container>
         </Box>
